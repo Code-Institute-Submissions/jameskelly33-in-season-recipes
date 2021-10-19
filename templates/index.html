@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Hero Image -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col position-relative text-center text-light">
+                <img class='img-fluid hero-img' src="{{ url_for('static', filename='images/carrots.jpg') }}"
+                    alt="">
+                <div class='position-absolute top-50 start-50 translate-middle cover-text '>
+                    <h1 class='hero-img-text'> In Season</h1>
+                    <h2 class='hero-img-text'>Recipes for eating seasonally</h2>
+                    <button type="button" class="btn btn-primary hero-img-btn">What's In Season </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Steps Section -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-lg-4">
+                <h3>Step 1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate rerum itaque alias dolores laborum
+                    omnis nisi ipsum id quis. Similique ipsa ut rerum maxime provident deleniti quasi facilis. Magnam, ex.
+                </p>
+                <button class="btn-primary btn">Learn More</button>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <h3>Step 2</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum nam officiis fugit distinctio ullam
+                    molest
+                    iae cumque nihil error aperiam rerum eaque, repellat laborum sint ducimus exercitationem incidunt culpa
+                    non similique.</p>
+                <button class="btn-primary btn">Learn More</button>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <h3>Step 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias perspiciatis rerum facilis
+                    dignissimos ipsum quae ad! Ipsum atque velit necessitatibus voluptatum vitae ratione esse eligendi,
+                    consequatur suscipit asperiores mollitia nulla!</p>
+                <button class="btn-primary btn">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+   
+{% endblock %}

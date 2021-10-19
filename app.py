@@ -22,12 +22,11 @@ mongo=PyMongo(app)
 
 
 @app.route("/")
-@app.route("/base.html")
+@app.route("/index.html")
 
 
-def test_function():
-    ingredients = mongo.db.recipes.find()
-    return render_template("base.html", ingredients = ingredients)
+def homepage():
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

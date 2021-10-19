@@ -1,3 +1,62 @@
-body, html{
-    height:100%;
+body,
+html {
+    height: 100%;
+    font-family: 'Lora', serif;
+}
+
+
+.hero-img {
+    position: relative;
+}
+
+.cover-text {
+    position: absolute;
+    top: 20vh;
+    right: 4vw;
+    color: black;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.hero-img-heading {
+    margin-top: 20px;
+    font-size: 4vw;
+    letter-spacing: 1.5vw;
+    font-weight: 400;
+}
+
+.hero-img-sub-heading{
+    margin-top: 2vh;
+    font-size: 1.5vw;
+    font-weight: 300;
+}
+
+.hero-img-btn{
+    margin-top: 20px;
+    background-color: #fe7101;
+    border-color: #fe7101;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.steps-section{
+    background-color: #e9e7e8;
+}
+
+.steps-section-button{
+    background-color: #fe7101;
+    border-color: #fe7101;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width:8vw;
+}
+
+.steps-heading{
+    font-size: 3vh;
+}
+
+.steps-text{
+    font-size: 2vh;
+}
+
+.step-1, .step-2{
+    border-right: 2px solid black
 }

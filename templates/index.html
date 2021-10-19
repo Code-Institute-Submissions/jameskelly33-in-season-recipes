@@ -1,44 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
     <!-- Hero Image -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col position-relative text-center text-light">
-                <img class='img-fluid hero-img' src="{{ url_for('static', filename='images/carrots.jpg') }}"
+    <div class="container-fluid g-0 hero-img-container">
+        <div class="row ">
+            <div class="col text-center">
+                <img class='img-fluid hero-img' src="{{ url_for('static', filename='images/tomatoes.jpg') }}"
                     alt="">
-                <div class='position-absolute top-50 start-50 translate-middle cover-text '>
-                    <h1 class='hero-img-text'> In Season</h1>
-                    <h2 class='hero-img-text'>Recipes for eating seasonally</h2>
-                    <button type="button" class="btn btn-primary hero-img-btn">What's In Season </button>
+                <div class='cover-text'>
+                    <h1 class='hero-img-heading'> IN SEASON</h1>
+                    <p class='hero-img-sub-heading'>Recipes for eating seasonally</p>
+                    <button type="button" class="btn btn-primary btn-lg hero-img-btn">What's In Season </button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Steps Section -->
-    <div class="container-fluid">
+    <div class="container-fluid postion-relative steps-section">
         <div class="row">
-            <div class="col-xs-12 col-lg-4">
-                <h3>Step 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate rerum itaque alias dolores laborum
-                    omnis nisi ipsum id quis. Similique ipsa ut rerum maxime provident deleniti quasi facilis. Magnam, ex.
-                </p>
-                <button class="btn-primary btn">Learn More</button>
+            <div class="col-xs-12 col-lg-4 text-center py-5 step-1 ">
+                <i class="fas fa-calendar-alt fa-3x"></i>
+                <h3 class="steps-heading py-3">Step 1</h3>
+                <p class="steps-text py-3">Find the ingredients that are in season now.</p>
+                <button class="btn-primary btn steps-section-button py-3">Ingredients</button>
             </div>
-            <div class="col-xs-12 col-lg-4">
-                <h3>Step 2</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum nam officiis fugit distinctio ullam
-                    molest
-                    iae cumque nihil error aperiam rerum eaque, repellat laborum sint ducimus exercitationem incidunt culpa
-                    non similique.</p>
-                <button class="btn-primary btn">Learn More</button>
+            <div class="col-xs-12 col-lg-4 text-center py-5 step-2 ">
+                <i class="fas fa-utensils fa-3x"></i>
+                <h3 class="steps-heading py-3">Step 2</h3>
+                <p class="steps-text py-3"> Find delicious recipes that use those ingredients and enjoy!</p>
+                <button class="btn-primary btn steps-section-button py-3">Recipes</button>
             </div>
-            <div class="col-xs-12 col-lg-4">
-                <h3>Step 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias perspiciatis rerum facilis
-                    dignissimos ipsum quae ad! Ipsum atque velit necessitatibus voluptatum vitae ratione esse eligendi,
-                    consequatur suscipit asperiores mollitia nulla!</p>
-                <button class="btn-primary btn">Learn More</button>
+            <div class="col-xs-12 col-lg-4 text-center py-5 step-3 ">
+                <i class="fas fa-users fa-3x"></i>
+                <h3 class="steps-heading py-3" >Step 3</h3>
+                <p class="steps-text py-3">Save and share your favourite recipes with our community </p>
+                <button class="btn-primary btn steps-section-button py-3">Join</button>
             </div>
         </div>
     </div>

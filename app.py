@@ -31,11 +31,19 @@ def homepage():
 
 @app.route("/ingredients.html")
 
+
 def ingredients():
     ingredients = mongo.db.ingredients.find()
     return render_template('ingredients.html', ingredients = ingredients)
 
+@app.route("/recipes.html")
 
+
+def recipes():
+    recipes = mongo.db.recipes.find()
+    return render_template('recipes.html', recipes = recipes)
+
+    
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -56,7 +56,12 @@ def myrecipes():
     recipes = mongo.db.recipes.find()
     return render_template("myrecipes.html", recipes = recipes)
 
-    
+@app.route("/uploadrecipe.html")
+
+def uploadrecipe():
+    return render_template('uploadrecipe.html')
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

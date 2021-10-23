@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class = "text-center my-5">Upload New Recipe</h1>
+
+<div class="container fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Recipe Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Recipe Name" required>
+    </div>
+    <div class="mb-3">
+        <label for="form-select-2">Seasonal Ingredient</label>
+        <select class="form-select" aria-label="Default select example" id='form-select-2 '>
+            <option selected>Choose Ingredient</option>
+            <option value="1">Aspargus</option>
+            <option value="2">Apples</option>
+            <option value="3">Basil</option>
+            <option value="3">Beetroot</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Ingredients</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="eg 250g Pasta "></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea2" class="form-label">Method</label>
+        <textarea class="form-control" id="exampleFormControlTextarea2" rows="10" placeholder="Boil the pasta in salted water "></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="form-select-3">Dish Category</label>
+        <select class="form-select" aria-label="Default select example" id='form-select-3'>
+            <option selected>Choose dish type</option>
+            <option value="1">Main</option>
+            <option value="2">Starter</option>
+            <option value="3">Dessert</option>
+        </select>
+    </div>
+    <div class='mb-3'>
+        <label for="exampleFormControlInput2" class="form-label">Type of Cuisine</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="eg French, Irish, Italian">
+    </div>
+    <div class="mb-3">
+        
+        
+            <button type="submit" class="btn btn-primary">Upload Recipe</button>
+        
+</form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}

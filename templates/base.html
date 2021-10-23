@@ -51,7 +51,7 @@
                         <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#logInModal" tabindex="-1">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" 
+                        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#registerModal"
                             tabindex="-1">Register</a>
                     </li>
                 </ul>
@@ -59,11 +59,6 @@
         </div>
     </nav>
 <!-- Log In Modal -->
-
-    <!-- Button trigger modal -->
-
-  
-  <!-- Modal -->
   <div class="modal fade" id="logInModal" tabindex="-1" aria-labelledby="logInModal" aria-hidden="true">
       <div class="modal-dialog">
           <div class="modal-content">
@@ -78,7 +73,7 @@
                           <input type="text" class="form-control" id="username" placeholder="Username">
                       </div>
                       <div class="mb-3">
-                          <label for="password" class="form-label">Username</label>
+                          <label for="password" class="form-label">Password</label>
                           <input type="text" class="form-control" id="password" placeholder="Password">
                       </div>
                       <div class="">
@@ -87,13 +82,51 @@
                   </form>
               </div>
               <div class="modal-footer">
-                  <p>Don't have an account? <span><a href="" data-bs-toggle="" data-bs-target="#">Register</a></span>
+                  <p>Don't have an account? <span><a href="" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="registerModal">Register</a></span>
                   </p>
               </div>
           </div>
       </div>
   </div>
 
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title ">Register</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                        <input type="text" class="form-control" id="confirm-password" placeholder="Confirm Password">
+                    </div>
+                    <div class="">
+                        <button type="submit" class="btn btn-primary mb-3">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p>Already have an account? <span><a href="" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#logInModal">Log In</a></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <main>
         {% block content %}

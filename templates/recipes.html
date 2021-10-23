@@ -19,20 +19,22 @@
     </div>
 </div>
 
-<div class="row row-cols-1 row-cols-lg-2 ">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
     {% for recipe in recipes %}  
         <div class="col">
-          <div class="card h-100  px-3 py-5 border-0">
+          <div class="card h-100 mx-2 px-3 py-5 border-0">
             <img src="{{ url_for('static', filename='images/carrots.jpg') }}" class="img-fluid rounded-start" alt="...">
             <div class="card-body">
               <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
               <p class="card-text">{{ recipe.recipe_description}}</p>
             </div>
             <div class="card-footer bg-transparent border-0">
-              <a href = "# "class = "btn btn-primary">Full recipe</a>
+              <a href = "{{ url_for('getfullrecipe')}} "class = "btn btn-primary">Full recipe</a>
             </div>
           </div>
         </div> 
+
+
     {% endfor %}
 
 {% endblock content %}

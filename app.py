@@ -48,6 +48,14 @@ def recipes():
 
 def getfullrecipe():
     return render_template("fullrecipe.html")
+
+@app.route("/myrecipes.html")
+
+
+def myrecipes():
+    recipes = mongo.db.recipes.find()
+    return render_template("myrecipes.html", recipes = recipes)
+
     
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

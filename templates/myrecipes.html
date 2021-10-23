@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Favourite Recipes</h1>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+   <div class="row">
+    {% for recipe in recipes %}
+    <div class="col">
+        <div class="card h-100 mx-2 px-3 py-5 border-0">
+            <img src="{{ url_for('static', filename='images/carrots.jpg') }}" class="img-fluid rounded-start" alt="...">
+            <div class="card-body">
+                <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
+                <p class="card-text">{{ recipe.recipe_description}}</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('getfullrecipe')}} " class="btn btn-primary">Full recipe</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col text-center">
+                <h1>My Recipes</h1>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="container ">
+        <div class="row">
+            <div class="col">
+                <h3 class="mx-3 my-3">You haven't uploaded any recipes yet.</h1>
+                    <h3 class=" mx-3 my-3">Click the button below to add your own recipes to the site</h1>
+                        <a href="" class="btn btn-primary mx-3 my-5">Upload Recipe</a>
+            </div>
+        </div>
+
+    </div> 
+</div>
+
+        
+    
+
+{% endblock content %}

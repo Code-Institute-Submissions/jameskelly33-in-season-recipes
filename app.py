@@ -5,6 +5,8 @@ from flask import (Flask, flash, render_template,
                   redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
+import calendar
 
 if os.path.exists('env.py'):
     import env
@@ -34,7 +36,15 @@ def homepage():
 
 def ingredients():
     ingredients = mongo.db.ingredients.find()
-    return render_template('ingredients.html', ingredients = ingredients)
+    now = datetime.now()
+    current_month = now.strftime("%m")
+    this_month = "calendar.month_name[int(current_month)]"
+    if this_month == "December":
+        next_month = "January"
+    else:
+        next_month = calendar.month_name[(int(current_month))+ 1]
+    
+    return render_template('ingredients.html', ingredients = ingredients, this_month = this_month, next_month = next_month )
 
 @app.route("/recipes.html")
 
@@ -60,6 +70,9 @@ def myrecipes():
 
 def uploadrecipe():
     return render_template('uploadrecipe.html')
+
+
+
 
 
 if __name__ == "__main__":

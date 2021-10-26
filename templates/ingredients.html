@@ -7,10 +7,15 @@
         </div>
     </div>
 </div>
+
+
+
+
 <div id ="current-month-carousel" class="owl-carousel owl-theme px-5">
-{% for ingredient in ingredients %}
+{% for ingredient in documents if ingredient.ingredient_name in current_ingredients %}
+    
     <div class="card border-0">
-        <h4 class="card-title text-center">{{ ingredient.ingredient_name}}</h4>
+        <h4 class="card-title text-center">{{ ingredient.ingredient_name }}</h4>
         <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100"
             alt="A photo of {{ ingredient.ingredient_name }}">
         <div class="card-body text-center">
@@ -18,11 +23,10 @@
             <button class="btn btn-primary">Find Recipes</button>
         </div>
     </div>
-  {% endfor %}  
-   
-    
 
+{% endfor %}
 </div>
+
 
 <div class="container-fluid">
     <div class="row">
@@ -32,26 +36,26 @@
     </div>
 </div>
 <div id ="next-month-carousel" class="owl-carousel owl-theme px-5">
+{% for ingredient in documents  if ingredient.ingredient_name in next_month_ingredients %}
     <div class="card border-0">
-        <h4 class="card-title text-center">Asparagus</h4>
-        <img src="{{ url_for('static', filename='images/small_asparagus.jpeg') }}" class="card-img-top d-block w-100"
+        <h4 class="card-title text-center">{{ ingredient.ingredient_name}}</h4>
+        <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100"
             alt="...">
         <div class="card-body text-center">
-            <p class="card-text ">Some quick example text to build on the card title and make up the
-                bulk of the card's content.</p>
+            <p class="card-text ">{{ ingredient.ingredient_description }}</p>
             <button class="btn btn-primary">Find Recipes</button>
         </div>
     </div>
-  
-    
-
+{% endfor %} 
 </div>
 
 
 
 
+
+
     
 
 
 
-{% endblock content %}
+{% endblock  %}

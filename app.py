@@ -36,15 +36,24 @@ def homepage():
 
 def ingredients():
     ingredients = mongo.db.ingredients.find()
+    documents = list(ingredients)
     now = datetime.now()
     current_month = now.strftime("%m")
-    this_month = "calendar.month_name[int(current_month)]"
+    this_month = calendar.month_name[int(current_month)]
     if this_month == "December":
         next_month = "January"
     else:
         next_month = calendar.month_name[(int(current_month))+ 1]
+    months = mongo.db.months.find()
+    for x in months:
+        if x.get(this_month):
+            current_ingredients = x.get(this_month)
+        elif x.get(next_month):    
+            next_month_ingredients = x.get(next_month)
+            
     
-    return render_template('ingredients.html', ingredients = ingredients, this_month = this_month, next_month = next_month )
+              
+    return render_template('ingredients.html', ingredients = ingredients, documents = documents , this_month = this_month, next_month = next_month, current_ingredients = current_ingredients , months =months, next_month_ingredients = next_month_ingredients,)
 
 @app.route("/recipes.html")
 
@@ -52,6 +61,14 @@ def ingredients():
 def recipes():
     recipes = mongo.db.recipes.find()
     return render_template('recipes.html', recipes = recipes)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes)
+
 
 @app.route("/fullrecipe.html")
 
@@ -70,8 +87,6 @@ def myrecipes():
 
 def uploadrecipe():
     return render_template('uploadrecipe.html')
-
-
 
 
 

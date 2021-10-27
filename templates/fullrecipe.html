@@ -3,28 +3,20 @@
 <div class="container position-relative">
     <div class="row">
         <div class="col ">
-            <h1 class=text-center>Recipe Name </h1>
+            <h1 class=text-center>{{recipe.recipe_name}} </h1>
             <img  class ="img-fluid my-5" src="{{ url_for('static', filename='images/small_asparagus.jpeg') }}" alt="">
             <h2>Ingredients</h2>
             <ol class="my-2">
-                <li class="my-3">Ingredient 1 </li>
-                <li class="my-3">Ingredient 2</li>
-                <li class="my-3">Ingredient 3</li>
-                <li class="my-3">Ingredient 4</li>
-                <li class="my-3">Ingredient 5</li>
-                <li class="my-3">Ingredient 6</li>
+                {% for ingredient in recipe.recipe_ingredients %}
+                <li class = "my-3">{{ ingredient }}</li>
+                {% endfor  %}
             </ol>
             <h2>Method</h2>
             <ol>
-                <li class="my-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores perferendis
-                    exercitationem doloribus dicta deleniti ad explicabo? Eveniet deserunt maiores, sit accusamus natus
-                    repellat, omnis quidem enim quia asperiores animi neque?</li>
-                <li class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium rerum laboriosam,
-                    ducimus saepe assumenda fugiat pariatur quibusdam. Aliquid, inventore fugiat accusantium, nostrum
-                    sed recusandae unde tempora, velit consequatur ipsa ut!</li>
-                <li class="my-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores perferendis
-                    exercitationem doloribus dicta deleniti ad explicabo? Eveniet deserunt maiores, sit accusamus natus
-                    repellat, omnis quidem enim quia asperiores animi neque?</li>
+                {% for step in recipe.method %}
+                <li class = "my-3">{{ step }}</li>
+                {% endfor  %}
+               
             </ol>
             <a href="" class='btn btn-primary my-5 position-absolute top-100 start-50 translate-middle'>Save Recipe</a>
         </div>

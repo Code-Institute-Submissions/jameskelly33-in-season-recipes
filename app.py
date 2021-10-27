@@ -64,17 +64,21 @@ def recipes():
 
 
 @app.route("/search", methods=["GET", "POST"])
+
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    
     return render_template("recipes.html", recipes=recipes)
 
 
-@app.route("/fullrecipe.html")
+@app.route("/fullrecipe.html",  methods=["POST"])
 
 
 def getfullrecipe():
-    return render_template("fullrecipe.html")
+    test = request.form["fullrecipebtn"]
+    recipe = mongo.db.recipes.find_one({"recipe_name": test})
+    return render_template("fullrecipe.html", test=test, recipe= recipe)
 
 @app.route("/myrecipes.html")
 
@@ -87,6 +91,8 @@ def myrecipes():
 
 def uploadrecipe():
     return render_template('uploadrecipe.html')
+
+
 
 
 

@@ -20,7 +20,11 @@
             alt="A photo of {{ ingredient.ingredient_name }}">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
-            <a href = "#" class="btn btn-primary">Find Recipes</a>
+            <form method ='POST' action="{{ url_for('getingredientrecipes')}}">
+              <button id='currentmonthbutton' type = 'submit' value ="{{ ingredient.ingredient_name }}" name = 'currentmonthbutton' class = "btn btn-primary">Find {{ ingredient.ingredient_name}} Recipes</button>
+              
+            </form>
+            
         </div>
     </div>
 
@@ -43,7 +47,10 @@
             alt="...">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
-            <button class="btn btn-primary">Find Recipes</button>
+            <form method ='POST' action="{{ url_for('getingredientrecipes')}}">
+                <button id='nextmonthbutton' type = 'submit' value ="{{ ingredient.ingredient_name }}" name = 'currentmonthbutton' class = "btn btn-primary">Find {{ ingredient.ingredient_name}} Recipes</button>
+                
+              </form>
         </div>
     </div>
 {% endfor %} 

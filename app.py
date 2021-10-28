@@ -55,6 +55,9 @@ def ingredients():
               
     return render_template('ingredients.html', ingredients = ingredients, documents = documents , this_month = this_month, next_month = next_month, current_ingredients = current_ingredients , months =months, next_month_ingredients = next_month_ingredients,)
 
+
+
+
 @app.route("/recipes.html")
 
 
@@ -70,6 +73,18 @@ def search():
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route("/ingredient_recipes", methods=["POST"])
+
+
+def getingredientrecipes():
+    if request.method == 'POST':
+        if request.form['currentmonthbutton']:
+            selected_ingredient = request.form["currentmonthbutton"]
+            recipes = list(mongo.db.recipes.find({"$text": {"$search": selected_ingredient }}))
+            return render_template("recipes.html", recipes = recipes, selected_ingredient = selected_ingredient)
+
 
 
 @app.route("/fullrecipe.html",  methods=["POST"])

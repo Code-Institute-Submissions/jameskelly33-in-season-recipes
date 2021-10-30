@@ -3,29 +3,33 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center">
-            <h1>Favourite Recipes</h1>
+            <h1> {{ username }}'s Favourite Recipes</h1>
             <hr>
         </div>
     </div>
 </div>
-
-<div class="container">
+{% if user_recipes %}
+<div class="container-fluid">
    <div class="row">
-    {% for recipe in recipes %}
+    {% for recipe in user_recipe_list %}
     <div class="col">
         <div class="card h-100 mx-2 px-3 py-5 border-0">
             <img src="{{ url_for('static', filename='images/carrots.jpg') }}" class="img-fluid rounded-start" alt="...">
             <div class="card-body">
-                <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
-                <p class="card-text">{{ recipe.recipe_description}}</p>
+                <h2 class="card-title">{{ recipe.recipe_name }} </h2>
+                <p class="card-text">{{ recipe.recipe_description }}</p>
             </div>
             <div class="card-footer bg-transparent border-0">
-                <a href="{{ url_for('getfullrecipe')}} " class="btn btn-primary">Full recipe</a>
+                <form method ='POST' action="{{ url_for('getfullrecipe')}}">
+                    <button id='myfullrecipebtn' type = 'submit' value ="{{ recipe.recipe_name }}" name = 'fullrecipebtn' class = "btn btn-primary">Get Full Recipe</button>
+                  </form>
+               
             </div>
         </div>
-    </div>
-
+    </div> 
+    
     {% endfor %}
+   {% else %} 
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col text-center">
@@ -34,7 +38,48 @@
             </div>
         </div>
     </div>
-    <div class="container ">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col">
+                <h3 class="mx-3 my-3">You haven't saved any recipes yet.</h1>
+            </div>
+        </div>
+
+    </div> 
+</div>
+   {% endif %} 
+<div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col text-center">
+                <h1>My Recipes</h1>
+                <hr>
+            </div>
+        </div>
+    </div>
+   {% if authored_recipes %}
+<div class="container-fluid">
+   <div class="row">
+    {% for recipe in authored_recipes %}
+    <div class="col">
+        <div class="card h-100 mx-2 px-3 py-5 border-0">
+            <img src="{{ url_for('static', filename='images/carrots.jpg') }}" class="img-fluid rounded-start" alt="...">
+            <div class="card-body">
+                <h2 class="card-title">{{ recipe.recipe_name }} </h2>
+                <p class="card-text">{{ recipe.recipe_description }}</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <form method ='POST' action="{{ url_for('getfullrecipe')}}">
+                    <button id='authoredfullrecipebtn' type = 'submit' value ="{{ recipe.recipe_name }}" name = 'fullrecipebtn' class = "btn btn-primary">Get Full Recipe</button>
+                  </form>
+               
+            </div>
+        </div>
+    </div> 
+    
+    {% endfor %}
+
+    {% else %}
+    <div class="container-fluid ">
         <div class="row">
             <div class="col">
                 <h3 class="mx-3 my-3">You haven't uploaded any recipes yet.</h1>
@@ -45,6 +90,7 @@
 
     </div> 
 </div>
+{% endif %}
 
         
     

@@ -82,10 +82,29 @@ def getfullrecipe():
     return render_template("fullrecipe.html", test=test, recipe=recipe)
 
 
-@app.route("/myrecipes.html")
-def myrecipes():
-    recipes = mongo.db.recipes.find()
-    return render_template("myrecipes.html", recipes=recipes)
+@app.route("/myrecipes/<username>", methods=["GET", "POST"])
+def myrecipes(username):
+    username = mongo.db.users.find_one(
+        {"email": session["current_user"]})['email']
+
+    # get user's saved recipes
+    user_recipes = mongo.db.users.find_one({"email": session["current_user"]})[
+        'favourite_recipes']
+
+    def getrecipebyId(recipeID):
+        return mongo.db.recipes.find_one({"_id": ObjectId(recipeID)})
+    
+    user_recipe_list = []
+    for x in user_recipes:
+       user_recipe_list.append(getrecipebyId(x))
+    #get user's authored recipes
+    authored_recipes = mongo.db.recipes.find(
+        {"recipe_author": session["current_user"]})
+
+    if session['current_user']:
+        return render_template("myrecipes.html", username=username, user_recipes=user_recipes, user_recipe_list=user_recipe_list, authored_recipes=authored_recipes)
+
+
 
 
 @app.route("/uploadrecipe.html")

@@ -45,7 +45,7 @@
                     </li>
                     {% if session.current_user %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('myrecipes') }}" tabindex="-1">My Recipes</a>
+                        <a class="nav-link" href="{{ url_for('myrecipes', username = session['current_user']) }}" tabindex="-1">My Recipes</a>
                     </li>
                     {% endif %}
                 </ul>

@@ -75,12 +75,24 @@ def getingredientrecipes():
             return render_template("recipes.html", recipes=recipes, selected_ingredient=selected_ingredient)
 
 
-@app.route("/fullrecipe.html",  methods=["POST"])
+@app.route("/fullrecipe.html",  methods=["GET", "POST"])
 def getfullrecipe():
     test = request.form["fullrecipebtn"]
     recipe = mongo.db.recipes.find_one({"recipe_name": test})
     return render_template("fullrecipe.html", test=test, recipe=recipe)
 
+@app.route("/saverecipe",  methods=["GET", "POST"])
+
+def saverecipe():
+    if session['current_user']:
+        recipe = request.form['saverecipebtn']
+        username = mongo.db.users.find_one(
+            {"email": session["current_user"]})['email']
+        mongo.db.users.update({'email':username},{"$push": {"favourite_recipes":recipe}})
+        flash ("Recipe saved!")
+    return render_template("fullrecipe.html", username = username, recipe = recipe) 
+          
+    
 
 @app.route("/myrecipes/<username>", methods=["GET", "POST"])
 def myrecipes(username):

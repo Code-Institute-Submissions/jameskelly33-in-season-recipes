@@ -75,14 +75,14 @@
             </div>
         </div>
     </div> 
-    <div>
-        <h3 class=" mx-3 my-3">Click the button below to add your own recipes to the site</h1>
-            <a href="{{ url_for('uploadrecipe') }}" class="btn btn-primary mx-3 my-5">Upload Recipe</a>
-    </div>
+   
    
     
     {% endfor %}
-
+ <div>
+        <h3 class=" mx-3 my-3">Click the button below to add your own recipes to the site</h1>
+            <a href="{{ url_for('uploadrecipe') }}" class="btn btn-primary mx-3 my-5">Upload Recipe</a>
+    </div>
     {% else %}
     <div class="container-fluid ">
         <div class="row">

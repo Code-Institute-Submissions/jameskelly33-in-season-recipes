@@ -16,20 +16,22 @@
                     <label for="recipe-description" class="form-label">Recipe Description</label>
                     <textarea type="text" class="form-control" id="recipe-description" rows="2"
                         name="recipe-description" placeholder="Short description of recipe" required></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="seasonal-ingredient">Seasonal Ingredient</label>
-        <select class="form-select" aria-label="Seasonal Ingredient Select Form" id='seasonal-ingredient' name='seasonal-ingredient' required>
-            <option selected>Choose Ingredient</option>
-            <option value="Aspargus">Aspargus</option>
-            <option value="Apples">Apples</option>
-            <option value="Basil">Basil</option>
-            <option value="Beetroot">Beetroot</option>
-        </select>
-    </div>
-    <div class="mb-3">
-        <label for="ingredients" class="form-label">Ingredients</label>
-        <textarea class="form-control" id="ingredients" name = "ingredients" rows="10" placeholder="Start a new line for each ingredient " required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="seasonal-ingredient">Seasonal Ingredient</label>
+                    <select class="form-select" aria-label="Seasonal Ingredient Select Form" id='seasonal-ingredient'
+                        name='seasonal-ingredient' required>
+                        <option selected>Choose Ingredient</option>
+                        <option value="Aspargus">Aspargus</option>
+                        <option value="Apples">Apples</option>
+                        <option value="Basil">Basil</option>
+                        <option value="Beetroot">Beetroot</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="ingredients" class="form-label">Ingredients</label>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="10"
+                        placeholder="Start a new line for each ingredient " required></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="method" class="form-label">Method</label>
@@ -67,4 +69,4 @@
 
 
 
-{% endblock content %}
+    {% endblock content %}

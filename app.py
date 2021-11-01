@@ -92,11 +92,11 @@ def saverecipe(recipe):
             {"email": session["current_user"]})['email']
         if mongo.db.users.find_one({"favourite_recipes":recipe_id}):
             flash ('Recipe already saved')
-            return render_template("fullrecipe.html", username = username, recipe_id = recipe_id, recipe=recipe) 
+            return redirect(url_for('homepage')) 
         else:     
             mongo.db.users.update({'email':username},{"$push": {"favourite_recipes":recipe_id}})
             flash ("Recipe saved!")
-            return render_template("fullrecipe.html", username = username, recipe_id = recipe_id, recipe=recipe) 
+            return redirect(url_for('homepage')) 
         
           
     

@@ -126,8 +126,21 @@ def myrecipes(username):
 
 
 
-@app.route("/uploadrecipe.html")
+@app.route("/uploadrecipe.html", methods = ['GET', "POST"])
 def uploadrecipe():
+    recipe= {
+        "recipe_name": request.form.get('recipe-name'),
+        "recipe_description": request.form.get('recipe-description'),
+        "seasonal_ingrdient": request.form.get('seasonal-ingredient'),
+        "ingredients": request.form.get('ingredients'),
+        "method": request.form.get('method'),
+        "dish_category": request.form.get('dish-category'),
+        "cuisine": request.form.get('cuisine'),
+        "recipe_author": "James",
+        "rating":4
+    }
+    print(recipe)
+
     return render_template('uploadrecipe.html')
 
 

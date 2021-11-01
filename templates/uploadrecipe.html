@@ -1,56 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class = "text-center my-5">Upload New Recipe</h1>
+<h1 class="text-center my-5">Upload New Recipe</h1>
 
 <div class="container fluid">
     <div class="row">
         <div class="col-lg-6">
-            <form action="">
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Recipe Name</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Recipe Name" required>
+            <form method='POST' action="{{ url_for ('uploadrecipe')}}">
+                <div class="mb-3">
+                    <label for="recipe_name" class="form-label">Recipe Name</label>
+                    <input type="text" class="form-control" id="recipe_name" name="recipe-name"
+                        placeholder="Recipe Name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="recipe-description" class="form-label">Recipe Description</label>
+                    <textarea type="text" class="form-control" id="recipe-description" rows="2"
+                        name="recipe-description" placeholder="Short description of recipe" required></textarea>
     </div>
     <div class="mb-3">
-        <label for="form-select-2">Seasonal Ingredient</label>
-        <select class="form-select" aria-label="Default select example" id='form-select-2 '>
+        <label for="seasonal-ingredient">Seasonal Ingredient</label>
+        <select class="form-select" aria-label="Seasonal Ingredient Select Form" id='seasonal-ingredient' name='seasonal-ingredient' required>
             <option selected>Choose Ingredient</option>
-            <option value="1">Aspargus</option>
-            <option value="2">Apples</option>
-            <option value="3">Basil</option>
-            <option value="3">Beetroot</option>
+            <option value="Aspargus">Aspargus</option>
+            <option value="Apples">Apples</option>
+            <option value="Basil">Basil</option>
+            <option value="Beetroot">Beetroot</option>
         </select>
     </div>
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Ingredients</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="eg 250g Pasta "></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea2" class="form-label">Method</label>
-        <textarea class="form-control" id="exampleFormControlTextarea2" rows="10" placeholder="Boil the pasta in salted water "></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="form-select-3">Dish Category</label>
-        <select class="form-select" aria-label="Default select example" id='form-select-3'>
-            <option selected>Choose dish type</option>
-            <option value="1">Main</option>
-            <option value="2">Starter</option>
-            <option value="3">Dessert</option>
-        </select>
-    </div>
-    <div class='mb-3'>
-        <label for="exampleFormControlInput2" class="form-label">Type of Cuisine</label>
-        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="eg French, Irish, Italian">
-    </div>
-    <div class="mb-3">
-        
-        
-            <button type="submit" class="btn btn-primary">Upload Recipe</button>
-        
-</form>
+        <label for="ingredients" class="form-label">Ingredients</label>
+        <textarea class="form-control" id="ingredients" name = "ingredients" rows="10" placeholder="Start a new line for each ingredient " required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="method" class="form-label">Method</label>
+                    <textarea class="form-control" id="method" name="method" rows="10"
+                        placeholder="Start a new line for each step " required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="dish-category">Dish Category</label>
+                    <select class="form-select" aria-label="Dish Category" id='dish-category' name='dish-category'
+                        required>
+                        <option selected>Choose dish type</option>
+                        <option value="main">Main</option>
+                        <option value="starter">Starter</option>
+                        <option value="dessert">Dessert</option>
+                    </select>
+                </div>
+                <div class='mb-3'>
+                    <label for="cuisine" class="form-label">Type of Cuisine</label>
+                    <input type="text" class="form-control" id="cuisine" name="cuisine"
+                        placeholder="eg French, Irish, Italian">
+                </div>
+                <div class="mb-3">
+
+
+                    <button type="submit" class="btn btn-primary">Upload Recipe</button>
+
+
+                </div>
+            </form>
         </div>
     </div>
-</div>
 
 
 

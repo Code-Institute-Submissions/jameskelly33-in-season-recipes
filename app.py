@@ -41,14 +41,14 @@ def ingredients():
         next_month = "January"
     else:
         next_month = calendar.month_name[(int(current_month)) + 1]
-    months = mongo.db.months.find()
+        months = mongo.db.months.find()
     for x in months:
         if x.get(this_month):
             current_ingredients = x.get(this_month)
         elif x.get(next_month):
             next_month_ingredients = x.get(next_month)
 
-    return render_template('ingredients.html', ingredients=ingredients, documents=documents, this_month=this_month, next_month=next_month, current_ingredients=current_ingredients, months=months, next_month_ingredients=next_month_ingredients,)
+    return render_template('ingredients.html', ingredients=ingredients, documents=documents, this_month=this_month, next_month=next_month, current_ingredients=current_ingredients, months=months, next_month_ingredients=next_month_ingredients)
 
 
 @app.route("/recipes.html")
@@ -61,7 +61,6 @@ def recipes():
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-
     return render_template("recipes.html", recipes=recipes)
 
 
@@ -75,22 +74,30 @@ def getingredientrecipes():
             return render_template("recipes.html", recipes=recipes, selected_ingredient=selected_ingredient)
 
 
-@app.route("/fullrecipe.html",  methods=["GET", "POST"])
-def getfullrecipe():
+@app.route("/fullrecipe/<recipe>",  methods=["GET", "POST"])
+def fullrecipe(recipe):
     test = request.form["fullrecipebtn"]
+    session['recipe'] = test
     recipe = mongo.db.recipes.find_one({"recipe_name": test})
     return render_template("fullrecipe.html", test=test, recipe=recipe)
 
-@app.route("/saverecipe",  methods=["GET", "POST"])
+@app.route("/fullrecipe/saverecipe/<recipe>",  methods=["GET", "POST"])
 
-def saverecipe():
+def saverecipe(recipe):
+    
     if session['current_user']:
-        recipe = request.form['saverecipebtn']
+        recipe_id = request.form['saverecipebtn']
+        recipe = session.get('recipe')
         username = mongo.db.users.find_one(
             {"email": session["current_user"]})['email']
-        mongo.db.users.update({'email':username},{"$push": {"favourite_recipes":recipe}})
-        flash ("Recipe saved!")
-    return render_template("fullrecipe.html", username = username, recipe = recipe) 
+        if mongo.db.users.find_one({"favourite_recipes":recipe_id}):
+            flash ('Recipe already saved')
+            return render_template("fullrecipe.html", username = username, recipe_id = recipe_id, recipe=recipe) 
+        else:     
+            mongo.db.users.update({'email':username},{"$push": {"favourite_recipes":recipe_id}})
+            flash ("Recipe saved!")
+            return render_template("fullrecipe.html", username = username, recipe_id = recipe_id, recipe=recipe) 
+        
           
     
 
@@ -109,7 +116,7 @@ def myrecipes(username):
     user_recipe_list = []
     for x in user_recipes:
        user_recipe_list.append(getrecipebyId(x))
-    #get user's authored recipes
+    # get user's authored recipes
     authored_recipes = mongo.db.recipes.find(
         {"recipe_author": session["current_user"]})
 

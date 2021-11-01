@@ -19,8 +19,8 @@
                
             </ol>
             {% if session.current_user %}
-            <form method = 'POST' action="{{url_for('saverecipe')}}">
-                <button id='saverecipebtn' type = 'submit' value ="{{ recipe._id}}" name = 'saverecipebtn' class = "btn btn-primary">Save Recipe</button>
+            <form method = 'POST' action="{{url_for('saverecipe', recipe = recipe.recipe_name)}}">
+                <button id='saverecipebtn' type = 'submit' value ="{{recipe._id}}" name = 'saverecipebtn' class = "btn btn-primary">Save Recipe</button>
             </form>
             {% else %}
             <button data-bs-toggle="modal" data-bs-target="#logInModal" class = 'btn btn-primary'>Log In to save recipe

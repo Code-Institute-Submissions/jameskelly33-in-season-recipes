@@ -214,3 +214,63 @@ left:0;
     font-size: 60px;
     color: black;
 }
+
+.ingredient-btn{
+    border-color: #7ca938;
+    background-color: #7ca938;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ingredient-btn:hover{
+    border-color: #465f21;
+    background-color: #465f21;
+}
+.ingredient-btn:active{
+    border-color: #465f21;
+    background-color: #465f21;
+}
+
+/* Log in and register modals */
+
+.modal-header{
+    background-color: #90AF4C;
+}
+
+
+.modal-btn{
+    background-color: #90AF4C;
+    border-color: #90AF4C;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.modal-btn:hover{
+    background-color: #90AF4C;
+    border-color: #90AF4C;
+}
+
+.modal-btn:active{
+    background-color: #90AF4C;
+    border-color: #90AF4C;
+}
+
+/* Flash Messages */
+.flash-messages{
+    background-color: #90AF4C;
+}
+
+.flash-once {
+    animation: flash 1s linear 1;
+  }
+  @keyframes flash {
+    50% {
+      opacity: 50%;
+    }
+    from {
+      color:#465f21 ;
+    }
+    to {
+      color: #90AF4C;
+    }
+  }
+
+

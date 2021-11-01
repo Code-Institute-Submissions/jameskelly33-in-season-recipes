@@ -1,34 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row">
-        <div class="col my-5 text-center">
+        <div class="col my-5 text-center ">
             <h1>In Season in {{ this_month}}</h1>
+            <hr>
         </div>
     </div>
 </div>
 
+<div id="current-month-carousel" class="owl-carousel owl-theme px-5">
+    {% for ingredient in documents if ingredient.ingredient_name in current_ingredients %}
 
-
-
-<div id ="current-month-carousel" class="owl-carousel owl-theme px-5">
-{% for ingredient in documents if ingredient.ingredient_name in current_ingredients %}
-    
     <div class="card border-0">
         <h4 class="card-title text-center">{{ ingredient.ingredient_name }}</h4>
         <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100"
             alt="A photo of {{ ingredient.ingredient_name }}">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
-            <form method ='POST' action="{{ url_for('getingredientrecipes')}}">
-              <button id='currentmonthbutton' type = 'submit' value ="{{ ingredient.ingredient_name }}" name = 'currentmonthbutton' class = "btn btn-primary">Find {{ ingredient.ingredient_name}} Recipes</button>
-              
+            <form method='POST' action="{{ url_for('getingredientrecipes')}}">
+                <button id='currentmonthbutton' type='submit' value="{{ ingredient.ingredient_name }}"
+                    name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name}}
+                    Recipes</button>
+
             </form>
-            
+
         </div>
     </div>
 
-{% endfor %}
+    {% endfor %}
 </div>
 
 
@@ -36,24 +36,27 @@
     <div class="row">
         <div class="col my-5 text-center">
             <h1>Coming into season in {{ next_month}} </h1>
+            <hr>
         </div>
     </div>
 </div>
-<div id ="next-month-carousel" class="owl-carousel owl-theme px-5">
-{% for ingredient in documents  if ingredient.ingredient_name in next_month_ingredients %}
+
+<div id="next-month-carousel" class="owl-carousel owl-theme px-5">
+    {% for ingredient in documents  if ingredient.ingredient_name in next_month_ingredients %}
     <div class="card border-0">
         <h4 class="card-title text-center">{{ ingredient.ingredient_name}}</h4>
-        <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100"
-            alt="...">
+        <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100" alt="...">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
-            <form method ='POST' action="{{ url_for('getingredientrecipes')}}">
-                <button id='nextmonthbutton' type = 'submit' value ="{{ ingredient.ingredient_name }}" name = 'currentmonthbutton' class = "btn btn-primary">Find {{ ingredient.ingredient_name}} Recipes</button>
-                
-              </form>
+            <form method='POST' action="{{ url_for('getingredientrecipes')}}">
+                <button id='nextmonthbutton' type='submit' value="{{ ingredient.ingredient_name }}"
+                    name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name}}
+                    Recipes</button>
+
+            </form>
         </div>
     </div>
-{% endfor %} 
+    {% endfor %}
 </div>
 
 
@@ -61,7 +64,7 @@
 
 
 
-    
+
 
 
 

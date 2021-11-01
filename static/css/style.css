@@ -34,7 +34,14 @@ html {
         background-color: #7ca938;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-
+    .hero-img-btn:hover{
+        border-color: #465f21;
+        background-color: #465f21;
+    }
+    .hero-img-btn:active{
+        border-color: #465f21;
+        background-color: #465f21;
+    }
     .steps-section {
         background-color: #f6f2f1e7;
     }
@@ -44,6 +51,14 @@ html {
         background-color: #7ca938;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         width: 120px;
+    }
+    .steps-section-button:hover{
+        border-color: #465f21;
+        background-color: #465f21;
+    }
+    .steps-section-button:active{
+        border-color: #465f21;
+        background-color: #465f21;
     }
 
     .steps-heading {
@@ -55,14 +70,7 @@ html {
         font-weight: 600;
     }
 
-    .step-1,
-    .step-2 {
-        border-bottom: 2px solid black;
-    }
-
 }
-
-
 /* Med Screens */
 
 @media screen and (min-width:768px){
@@ -119,9 +127,6 @@ html {
         font-size: 4vw;
         letter-spacing: 1.5vw;
         font-weight: 400;
-        
-    
-        
     }
     
     .hero-img-sub-heading {
@@ -136,18 +141,34 @@ html {
         border-color: #fe7101;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-    
+    .hero-img-btn:hover{
+        background-color: #bb5908;
+        border-color: #bb5908;
+    }
+
+    .hero-img-btn:active{
+        background-color: #bb5908;
+        border-color: #bb5908;
+    }
     .steps-section {
         background-color: #e9e7e8;
-        
-    }
     
+    }
     .steps-section-button {
-       
+    
         background-color: #fe7101;
         border-color: #fe7101;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         width: 200px;
+    }
+    .steps-section-button:hover{
+        background-color: #bb5908;
+        border-color: #bb5908;
+    }
+
+    .steps-section-button:active{
+        background-color: #bb5908;
+        border-color: #bb5908;
     }
     
     .steps-heading {

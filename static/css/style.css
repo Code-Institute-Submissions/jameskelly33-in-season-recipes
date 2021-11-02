@@ -249,8 +249,8 @@ left:0;
 }
 
 .modal-btn:active{
-    background-color: #90AF4C;
-    border-color: #90AF4C;
+    background-color: #465f21;
+    border-color: #465f21;
 }
 
 /* Flash Messages */
@@ -282,13 +282,13 @@ left:0;
 
 
 .recipe-btn:hover{
-    background-color: #90AF4C;
-    border-color: #90AF4C;
+    background-color: #465f21;
+    border-color: #465f21;
 }
 
 .recipe-btn:active{
-    background-color: #90AF4C;
-    border-color: #90AF4C;
+    background-color: #465f21;
+    border-color: #465f21;
 }
 
 /* Full Recipe page */
@@ -310,11 +310,32 @@ left:0;
 }
 
 .save-recipe-btn:hover{
-    background-color: #90AF4C;
-    border-color: #90AF4C;
+    background-color: #465f21;
+    border-color: #465f21;
 }
 
 .save-recipe-btn:active{
-    background-color: #90AF4C;
-    border-color: #90AF4C;
+    background-color: #465f21;
+    border-color: #465f21;
 }
+
+/* Full Recipe page */
+
+.upload-recipe-btn{
+    
+        background-color: #90AF4C;
+        border-color: #90AF4C;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    
+
+.upload-recipe-btn:hover{
+        background-color: #465f21;
+        border-color: #465f21;
+    }
+    
+    .upload-recipe-btn:active{
+        background-color: #465f21;
+        border-color: #465f21;
+    }

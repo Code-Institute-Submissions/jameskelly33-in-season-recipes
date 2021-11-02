@@ -2,32 +2,63 @@
 {% block content %}
 <div class="container position-relative">
     <div class="row">
-        <div class="col ">
-            <h1 class=text-center>{{recipe.recipe_name}} </h1>
-            <img  class ="img-fluid my-5" src="{{ url_for('static', filename='images/small_asparagus.jpeg') }}" alt="">
-            <h2>Ingredients</h2>
-            <ol class="my-2">
-                {% for ingredient in recipe.recipe_ingredients %}
-                <li class = "my-3">{{ ingredient }}</li>
-                {% endfor  %}
-            </ol>
-            <h2>Method</h2>
-            <ol>
-                {% for step in recipe.method %}
-                <li class = "my-3">{{ step }}</li>
-                {% endfor  %}
-               
-            </ol>
-            {% if session.current_user %}
-            <form method = 'POST' action="{{url_for('saverecipe', recipe = recipe.recipe_name)}}">
-                <button id='saverecipebtn' type = 'submit' value ="{{recipe._id}}" name = 'saverecipebtn' class = "btn btn-primary">Save Recipe</button>
-            </form>
-            {% else %}
-            <button data-bs-toggle="modal" data-bs-target="#logInModal" class = 'btn btn-primary'>Log In to save recipe
-
-            </button>
-            {% endif %}
+        <div class="col">
+            <h1 class='text-center'>{{recipe.recipe_name}} </h1>
+            <p class='text-center fst-italic'> {{recipe.recipe_description}}</p>
+            
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-12 col-lg-6 px-5">
+        <img src="{{ recipe.recipe_image }}" class="img-fluid my-5" alt="">
+        
+    </div>
+
+    <div class="col-sm-12 col-lg-6 px-5 ingredients">
+        <h2>Ingredients</h2>
+        <ul class=" card-columns ">
+            {% for ingredient in recipe.recipe_ingredients %}
+            <li class="my-3">{{ ingredient }}</li>
+            {% endfor  %}
+        </ul>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col mx-5">
+        <h2>Method</h2>
+        <ol>
+            {% for step in recipe.method %}
+            <li class="my-3">{{ step }}</li>
+            {% endfor  %}
+
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center py-5">
+        {% if session.current_user %}
+        <form method='POST' action="{{url_for('saverecipe', recipe = recipe.recipe_name)}}">
+            <button id='saverecipebtn' type='submit' value="{{recipe._id}}" name='saverecipebtn'
+                class="btn btn-lg btn-primary my-5 save-recipe-btn">Save Recipe</button>
+        </form>
+        {% else %}
+        <button data-bs-toggle="modal" data-bs-target="#logInModal" class='btn btn-lg btn-primary save-recipe-btn'>Log In to Save Recipe
+
+        </button>
+        {% endif %}
+    </div>
+
+</div>
+
+</div>
+<div class="row">
+    <div class="col mb-5 text-muted text-center">
+        Recipe Submitted by {{ recipe.recipe_author}}
+    </div>
+</div>
+
 {% endblock content  %}

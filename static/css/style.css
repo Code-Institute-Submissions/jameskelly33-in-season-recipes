@@ -291,3 +291,30 @@ left:0;
     border-color: #90AF4C;
 }
 
+/* Full Recipe page */
+@media screen and (min-width:992px){
+.ingredients{
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+}
+
+.card-columns {
+    column-count: 2;
+ }
+
+}
+.save-recipe-btn{
+    background-color: #90AF4C;
+    border-color: #90AF4C;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.save-recipe-btn:hover{
+    background-color: #90AF4C;
+    border-color: #90AF4C;
+}
+
+.save-recipe-btn:active{
+    background-color: #90AF4C;
+    border-color: #90AF4C;
+}

@@ -229,26 +229,31 @@ left:0;
     background-color: #465f21;
 }
 
-/* Log in and register modals */
+/* Log in and register forms */
 
-.modal-header{
+.form-card-header{
     background-color: #90AF4C;
 }
 
+.card-forms{
+    box-shadow:
+      0 6px 6px hsl(0deg 0% 0% / 0.3);
+  }
 
-.modal-btn{
+
+.form-btn{
     background-color: #90AF4C;
     border-color: #90AF4C;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
-.modal-btn:hover{
-    background-color: #90AF4C;
-    border-color: #90AF4C;
+.form-btn:hover{
+    background-color: #465f21;
+    border-color: #465f21;
 }
 
-.modal-btn:active{
+.form-btn:active{
     background-color: #465f21;
     border-color: #465f21;
 }
@@ -339,3 +344,5 @@ left:0;
         background-color: #465f21;
         border-color: #465f21;
     }
+
+   

@@ -9,6 +9,7 @@ from datetime import datetime
 import calendar
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 if os.path.exists('env.py'):
     import env
 
@@ -103,8 +104,12 @@ def saverecipe(recipe):
 
 @app.route("/myrecipes/<username>", methods=["GET", "POST"])
 def myrecipes(username):
-    username = mongo.db.users.find_one(
+    email = mongo.db.users.find_one(
         {"email": session["current_user"]})['email']
+    
+    username = mongo.db.users.find_one(
+        {"email": session["current_user"]})['username']
+    
 
     # get user's saved recipes
     user_recipes = mongo.db.users.find_one({"email": session["current_user"]})[
@@ -152,7 +157,7 @@ def uploadrecipe():
 
 
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register.html", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         
@@ -166,21 +171,22 @@ def register():
             flash("Passwords do not match")
             return redirect(url_for('register'))
         new_user = {
+            "username":request.form.get("username").lower(),
             "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "favourite_recipes":[],
-            "user_recipes":[]
+            "favourite_recipes":[]
         }
         mongo.db.users.insert_one(new_user)
 
         flash("Successfully registered!")
         session["current_user"] = request.form.get("email").lower()
+        return redirect(url_for("homepage"))
         
      
 
-    return render_template("index.html")
+    return render_template("register.html")
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login.html", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -190,14 +196,14 @@ def login():
                     existing_user["password"], request.form.get("password")):   
                         session["current_user"] = request.form.get("email").lower() 
                         flash ("Successfully Logged In!")
-                        return redirect(url_for('login'))
+                        return redirect(url_for('homepage'))
             else:
                 flash("Incorrect email or password") 
                 return redirect(url_for('login'))   
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-    return render_template("index.html")        
+    return render_template("login.html")        
 
 @app.route("/logout")
 

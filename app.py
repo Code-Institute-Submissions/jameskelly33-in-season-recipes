@@ -20,6 +20,8 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_blocks = True
 
 
 mongo = PyMongo(app)
@@ -135,6 +137,7 @@ def myrecipes(username):
 def uploadrecipe():
     username = mongo.db.users.find_one(
         {"email": session["current_user"]})['email']
+    ingredients = mongo.db.ingredients.find()  
     if request.method == "POST":
         recipe= {
             "recipe_name": request.form.get('recipe-name'),
@@ -152,8 +155,34 @@ def uploadrecipe():
         
         return redirect(url_for('homepage'))
 
-    return render_template('uploadrecipe.html')
+    return render_template('uploadrecipe.html', ingredients = ingredients)
 
+@app.route("/editrecipe.html/<recipe>", methods = ['GET', "POST"])
+def editrecipe(recipe):
+    ingredients= mongo.db.ingredients.find()
+    categories = ["Starter", "Main", "Dessert"]
+    def getrecipebyId(recipeID):
+        return mongo.db.recipes.find_one({"_id": ObjectId(recipeID)})
+    recipe_info = getrecipebyId(recipe)
+    if request.method == "POST":
+        updated_recipe= {
+            "recipe_name": request.form.get('recipe-name'),
+            "recipe_description": request.form.get('recipe-description'),
+            "seasonal_ingredient": request.form.get('seasonal-ingredient'),
+            "recipe_ingredients": request.form.get('ingredients').splitlines(),
+            "method": request.form.get('method').splitlines(),
+            "recipe_category": request.form.get('dish-category'),
+            "cuisine": request.form.get('cuisine'),
+            "rating":4,
+            
+        
+        }
+        mongo.db.recipes.update(({"_id": ObjectId(recipe)}), updated_recipe)
+        flash ("Recipe updated")      
+        
+        return redirect(url_for('homepage'))
+
+    return render_template("editrecipe.html", recipe = recipe, ingredients = ingredients, recipe_info = recipe_info, categories = categories)
 
 
 

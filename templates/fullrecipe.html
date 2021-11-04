@@ -46,8 +46,7 @@
                 class="btn btn-lg btn-primary my-5 save-recipe-btn">Save Recipe</button>
         </form>
         {% else %}
-        <button data-bs-toggle="modal" data-bs-target="#logInModal" class='btn btn-lg btn-primary save-recipe-btn'>Log In to Save Recipe
-
+        <button href="{{ url_for('login.html')}}" class='btn btn-lg btn-primary save-recipe-btn'>Log In to Save Recipe
         </button>
         {% endif %}
     </div>

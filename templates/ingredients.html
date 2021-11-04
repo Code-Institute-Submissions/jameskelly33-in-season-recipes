@@ -10,7 +10,7 @@
 </div>
 
 <div id="current-month-carousel" class="owl-carousel owl-theme px-5">
-    {% for ingredient in documents if ingredient.ingredient_name in current_ingredients %}
+    {% for ingredient in ingredients if ingredient.ingredient_name in current_ingredients %}
 
     <div class="card border-0">
         <h4 class="card-title text-center">{{ ingredient.ingredient_name }}</h4>
@@ -42,7 +42,7 @@
 </div>
 
 <div id="next-month-carousel" class="owl-carousel owl-theme px-5">
-    {% for ingredient in documents  if ingredient.ingredient_name in next_month_ingredients %}
+    {% for ingredient in ingredients  if ingredient.ingredient_name in next_month_ingredients %}
     <div class="card border-0">
         <h4 class="card-title text-center">{{ ingredient.ingredient_name}}</h4>
         <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100" alt="...">

@@ -65,18 +65,21 @@
             <p class="card-text">{{ recipe.recipe_description}}</p>
         </div>
         <div class="card-footer bg-transparent border-0 ">
-            <form method='POST' action="{{ url_for('fullrecipe', recipe = recipe.recipe_name)}}">
+            <div class="btn-group" role="group" aria-label="Recipe Button Group">
+             <form method='POST' action="{{ url_for('fullrecipe', recipe = recipe.recipe_name)}}">
                 <button id='fullrecipebtn' type='submit' value="{{ recipe.recipe_name }}" name='fullrecipebtn'
-                    class="btn btn-primary btn-small recipe-btn ">Get Full Recipe</button> 
+                    class="btn btn-primary btn-small recipe-btn mx-2">Full Recipe</button> 
             </form>
             
                 <a id='editrecipebtn' href="{{url_for('editrecipe', recipe = recipe._id)}}" value="{{ recipe._id }}" name='editrecipebtn'
-                    class="btn btn-primary btn-small recipe-btn ">Edit Recipe</a>
+                    class="btn btn-primary btn-small recipe-btn mx-2">Edit Recipe</a>
             
             <form method="POST" action="">
                 <button id='deleterecipebtn' type='submit' value="{{ recipe.recipe_name }}" name='deleterecipebtn'
-                    class="btn btn-primary recipe-btn">Delete Recipe</button>
-            </form>
+                    class="btn btn-primary recipe-btn mx-2">Delete Recipe</button>
+            </form>   
+            </div>
+            
                     
                      
         </div>

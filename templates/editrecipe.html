@@ -2,22 +2,21 @@
 {% block content %}
 
 <h1 class="text-center my-5">Edit Recipe</h1>
-
-<div class="container fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-md-8 offset-md-2 my-3 border shadow">
             <form method='POST' action="{{ url_for ('editrecipe', recipe=recipe)}}">
-                <div class="mb-3">
+                <div class="my-4">
                     <label for="recipe_name" class="form-label">Recipe Name</label>
                     <input type="text" class="form-control" id="recipe_name" name="recipe-name" value= "{{recipe_info.recipe_name}}"
                         placeholder="Recipe Name" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="recipe-description" class="form-label">Recipe Description</label>
                     <textarea type="text" class="form-control" id="recipe-description" rows="2"
                         name="recipe-description" placeholder="Short description of recipe"required>{{recipe_info.recipe_description}}</textarea>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="seasonal-ingredient">Seasonal Ingredient</label>
                     <select class="form-select" aria-label="Seasonal Ingredient Select Form" id='seasonal-ingredient'
                         name='seasonal-ingredient' required>
@@ -32,14 +31,14 @@
                        
                     </select>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="ingredients" class="form-label">Ingredients</label>
                     <textarea class="form-control" id="ingredients" name="ingredients" rows="10" placeholder="Start a new line for each ingredient"required>
                         {% for recipe_ingredient in recipe_info.recipe_ingredients -%}
                         {{recipe_ingredient}}
                         {% endfor %}</textarea>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="method" class="form-label">Method</label>
                     <textarea class="form-control" id="method" name="method" rows="10"
                         placeholder="Start a new line for each step " required>
@@ -47,7 +46,7 @@
                         {{step}}
                         {% endfor %}</textarea>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="dish-category">Dish Category</label>
                     <select class="form-select" aria-label="Dish Category" id='dish-category' name='dish-category'
                         required>
@@ -61,15 +60,15 @@
                         
                     </select>
                 </div>
-                <div class='mb-3'>
+                <div class='mb-4'>
                     <label for="cuisine" class="form-label">Type of Cuisine</label>
                     <input type="text" class="form-control" id="cuisine" name="cuisine"
                         placeholder="eg French, Irish, Italian" value = {{ recipe_info.cuisine}}>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
 
 
-                    <button type="submit" class="btn btn-primary">Upload Recipe</button>
+                    <button type="submit" class="btn btn-primary form-btn">Upload Recipe</button>
 
 
                 </div>

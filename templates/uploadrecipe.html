@@ -3,11 +3,12 @@
 
 <h1 class="text-center my-5">Upload New Recipe</h1>
 
-<div class="container fluid">
+
+<div class="container ">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-md-8 offset-md-2 border shadow">
             <form method='POST' action="{{ url_for ('uploadrecipe')}}">
-                <div class="mb-3">
+                <div class="my-3">
                     <label for="recipe_name" class="form-label">Recipe Name</label>
                     <input type="text" class="form-control" id="recipe_name" name="recipe-name"
                         placeholder="Recipe Name" required>
@@ -55,7 +56,7 @@
                 <div class="mb-3">
 
 
-                    <button type="submit" class="btn btn-primary">Upload Recipe</button>
+                    <button type="submit" class="btn btn-primary form-btn">Upload Recipe</button>
 
 
                 </div>

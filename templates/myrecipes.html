@@ -15,7 +15,7 @@
     {% for recipe in user_recipe_list %}
     <div class="col">
         <div class="card h-100 mx-2 px-3 py-5 border-0">
-            <img src="{{ recipe.recipe_image }}" class="img-fluid rounded-start" alt="...">
+            <div style="background-image: url({{ recipe.recipe_image }})"  class="recipe-img" alt="{{recipe.recipe_name}}, {{recipe.recipe_description}}"></div>
             <div class="card-body">
                 <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
                 <p class="card-text">{{ recipe.recipe_description}}</p>
@@ -60,7 +60,7 @@
         {% for recipe in authored_recipes %}
         <div class="col">
             <div class="card h-100 mx-2 px-3 py-5 border-0">
-                <img src="{{ recipe.recipe_image }}" class="img-fluid rounded-start" alt="...">
+                <div style="background-image: url({{ recipe.recipe_image }})"  class="recipe-img" alt="{{recipe.recipe_name}}, {{recipe.recipe_description}}"></div>
                 <div class="card-body">
                     <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
                     <p class="card-text">{{ recipe.recipe_description}}</p>

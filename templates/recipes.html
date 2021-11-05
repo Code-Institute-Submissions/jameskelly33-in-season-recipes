@@ -27,7 +27,7 @@
   {% for recipe in recipes %}
   <div class="col">
     <div class="card h-100 mx-2 px-3 py-5 border-0">
-      <div style="background-image: url({{ recipe.recipe_image }})"  class="recipe-img" alt="An Image of {{recipe.recipe_name}}"> </div>
+      <div style="background-image: url({{ recipe.recipe_image }})"  class="recipe-img" alt="{{recipe.recipe_name}}, {{recipe.recipe_description}}"> </div>
       <div class="card-body">
         <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
         <p class="card-text">{{ recipe.recipe_description}}</p>

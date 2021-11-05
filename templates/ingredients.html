@@ -15,7 +15,7 @@
     <div class="card border-0">
         <h4 class="card-title text-center">{{ ingredient.ingredient_name }}</h4>
         <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100"
-            alt="A photo of {{ ingredient.ingredient_name }}">
+            alt="{{ ingredient.ingredient_name }}, {{ingredient.ingredient_description}}">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
             <form method='POST' action="{{ url_for('getingredientrecipes')}}">

@@ -2,40 +2,40 @@
 {% block content %}
 
 <div class="container">
-<div class="row">
-    <div class="col-md-6 offset-md-3 my-5 px-3">
-        <div class="card card-forms">
-        <div class="card-header form-card-header py-3">
-          <h1 class="card-title">Log In</h1>
-        </div>
-        <div class="card-body">
-            <form method='POST' action=" {{ url_for('login')}}">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="username" name="email" placeholder="Email">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 my-5 px-3">
+            <div class="card card-forms">
+                <div class="card-header form-card-header py-3">
+                    <h1 class="card-title">Log In</h1>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password"
-                        placeholder="Password">
+                <div class="card-body">
+                    <form method='POST' action=" {{ url_for('login')}}">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="username" name="email" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="Password">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary mb-3 form-btn">Log In</button>
+                        </div>
+                    </form>
+
+
                 </div>
-                <div>
-                    <button type="submit" class="btn btn-primary mb-3 form-btn">Log In</button>
+                <div class="card-footer">
+                    <p class='text-muted'>Don't have an account? Register Here. </p>
                 </div>
-            </form>
-           
-          
+            </div>
         </div>
-        <div class="card-footer">
-            <p class = 'text-muted'>Don't have an account? Register Here. </p>
-        </div>
-      </div>
     </div>
-</div>
 
 </div>
 
-                
-                    
-        
+
+
+
 {% endblock content %}

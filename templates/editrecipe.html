@@ -8,13 +8,14 @@
             <form method='POST' action="{{ url_for ('editrecipe', recipe=recipe)}}">
                 <div class="my-4">
                     <label for="recipe_name" class="form-label">Recipe Name</label>
-                    <input type="text" class="form-control" id="recipe_name" name="recipe-name" value= "{{recipe_info.recipe_name}}"
-                        placeholder="Recipe Name" required>
+                    <input type="text" class="form-control" id="recipe_name" name="recipe-name"
+                        value="{{recipe_info.recipe_name}}" placeholder="Recipe Name" required>
                 </div>
                 <div class="mb-4">
                     <label for="recipe-description" class="form-label">Recipe Description</label>
                     <textarea type="text" class="form-control" id="recipe-description" rows="2"
-                        name="recipe-description" placeholder="Short description of recipe"required>{{recipe_info.recipe_description}}</textarea>
+                        name="recipe-description" placeholder="Short description of recipe"
+                        required>{{recipe_info.recipe_description}}</textarea>
                 </div>
                 <div class="mb-4">
                     <label for="seasonal-ingredient">Seasonal Ingredient</label>
@@ -22,18 +23,19 @@
                         name='seasonal-ingredient' required>
                         <option>Choose Ingredient</option>
                         {% for ingredient in ingredients %}
-                            {% if ingredient.ingredient_name == recipe_info.seasonal_ingredient %}
-                                <option value="{{ ingredient.ingredient_name}}" selected >{{ingredient.ingredient_name}}</option>
-                            {% else %}    
-                                <option value="{{ ingredient.ingredient_name}}" >{{ingredient.ingredient_name}}</option>
-                            {% endif %}
+                        {% if ingredient.ingredient_name == recipe_info.seasonal_ingredient %}
+                        <option value="{{ ingredient.ingredient_name}}" selected>{{ingredient.ingredient_name}}</option>
+                        {% else %}
+                        <option value="{{ ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
+                        {% endif %}
                         {% endfor %}
-                       
+
                     </select>
                 </div>
                 <div class="mb-4">
                     <label for="ingredients" class="form-label">Ingredients</label>
-                    <textarea class="form-control" id="ingredients" name="ingredients" rows="10" placeholder="Start a new line for each ingredient"required>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="10"
+                        placeholder="Start a new line for each ingredient" required>
                         {% for recipe_ingredient in recipe_info.recipe_ingredients -%}
                         {{recipe_ingredient}}
                         {% endfor %}</textarea>
@@ -51,19 +53,19 @@
                     <select class="form-select" aria-label="Dish Category" id='dish-category' name='dish-category'
                         required>
                         {% for category in categories %}
-                            {% if category == recipe_info.recipe_category %}
-                                <option value="{{ category}}" selected >{{category}}</option>
-                            {% else %}    
-                                <option value="{{ category}}" >{{category}}</option>
-                            {% endif %}
+                        {% if category == recipe_info.recipe_category %}
+                        <option value="{{ category}}" selected>{{category}}</option>
+                        {% else %}
+                        <option value="{{ category}}">{{category}}</option>
+                        {% endif %}
                         {% endfor %}
-                        
+
                     </select>
                 </div>
                 <div class='mb-4'>
                     <label for="cuisine" class="form-label">Type of Cuisine</label>
                     <input type="text" class="form-control" id="cuisine" name="cuisine"
-                        placeholder="eg French, Irish, Italian" value = {{ recipe_info.cuisine}}>
+                        placeholder="eg French, Irish, Italian" value={{ recipe_info.cuisine}}>
                 </div>
                 <div class="mb-4">
 

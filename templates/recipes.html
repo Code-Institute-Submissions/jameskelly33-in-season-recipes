@@ -2,46 +2,48 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col text-center">
-            <h1>Recipes</h1>
-        </div>
-        
+  <div class="row">
+    <div class="col text-center">
+      <h1>Recipes</h1>
     </div>
+
+  </div>
 </div>
 <div class="container text-center my-5">
-    <div class="row">
-        <div class="col">
-            <form class="d-flex" method="POST" action="{{ url_for('search')}}">
-                
-                <input id="query"class="form-control me-2"  type="text" name = 'query' placeholder="Recipe, ingredient, or cuisine" aria-label="Search">
-                
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-        </div>
+  <div class="row">
+    <div class="col">
+      <form class="d-flex" method="POST" action="{{ url_for('search')}}">
+
+        <input id="query" class="form-control me-2" type="text" name='query'
+          placeholder="Recipe, ingredient, or cuisine" aria-label="Search">
+
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
+  </div>
 </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-    {% for recipe in recipes %}  
-        <div class="col">
-          <div class="card h-100 mx-2 px-3 py-5 border-0">
-            <img src="{{ recipe.recipe_image }}" class="img-fluid rounded-start recipe-img" alt="...">
-            <div class="card-body">
-              <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
-              <p class="card-text">{{ recipe.recipe_description}}</p>
-            </div>
-            <div class="card-footer bg-transparent border-0">
-              <form method ='POST' action="{{ url_for('fullrecipe', recipe = recipe.recipe_name)}}">
-              <button id='fullrecipebtn' type = 'submit' value ="{{ recipe.recipe_name }}" name = 'fullrecipebtn' class = "btn btn-primary recipe-btn">Get Full Recipe</button>
-              
-            </form>
-              
-            </div>
-          </div>
-        </div> 
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  {% for recipe in recipes %}
+  <div class="col">
+    <div class="card h-100 mx-2 px-3 py-5 border-0">
+      <div style="background-image: url({{ recipe.recipe_image }})"  class="recipe-img" alt="An Image of {{recipe.recipe_name}}"> </div>
+      <div class="card-body">
+        <h2 class="card-title "> {{ recipe.recipe_name }}</h2>
+        <p class="card-text">{{ recipe.recipe_description}}</p>
+      </div>
+      <div class="card-footer bg-transparent border-0">
+        <form method='POST' action="{{ url_for('fullrecipe', recipe = recipe.recipe_name)}}">
+          <button id='fullrecipebtn' type='submit' value="{{ recipe.recipe_name }}" name='fullrecipebtn'
+            class="btn btn-primary recipe-btn">Get Full Recipe</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
 
 
-    {% endfor %}
+  {% endfor %}
 
-{% endblock content %}
+  {% endblock content %}

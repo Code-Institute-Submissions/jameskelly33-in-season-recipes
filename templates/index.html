@@ -1,55 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
-    <!-- Hero Image -->
-    <div class="container-fluid g-0">
-        <div class="row ">
-            <div class="col hero-img">
-                 <picture>
-                     <source class='img-fluid' media="(max-width: 992px)" srcset="{{ url_for('static', filename='images/asparagus.jpg') }}">
-                     <img class='img-fluid' src="{{ url_for('static', filename='images/tomatoes.jpg') }}"alt="">
-                 </picture>   
-                    <div class='cover-text'>
-                        <h1 class='hero-img-heading'> IN SEASON</h1>
-                        <p class='hero-img-sub-heading'>Recipes for eating seasonally</p>
-                        <a type="button" href="{{ url_for('ingredients')}}" class="btn btn-primary hero-img-btn">What's In Season </a>
-                    </div>
+<!-- Hero Image -->
+<div class="container-fluid g-0">
+    <div class="row ">
+        <div class="col hero-img">
+            <picture>
+                <source class='img-fluid' media="(max-width: 992px)"
+                    srcset="{{ url_for('static', filename='images/asparagus.jpg') }}">
+                <img class='img-fluid' src="{{ url_for('static', filename='images/tomatoes.jpg') }}" alt="">
+            </picture>
+            <div class='cover-text'>
+                <h1 class='hero-img-heading'> IN SEASON</h1>
+                <p class='hero-img-sub-heading'>Recipes for eating seasonally</p>
+                <a type="button" href="{{ url_for('ingredients')}}" class="btn btn-primary hero-img-btn">What's In
+                    Season </a>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="card-group">
-        <div class="card py-5">
-          <div class="card-body text-center">
+<div class="card-group">
+    <div class="card py-5">
+        <div class="card-body text-center">
             <i class="fas fa-calendar-alt fa-3x"></i>
             <h3 class="card-title steps-heading py-3">Step 1</h3>
-            <p class="card-text steps-text py-3">Find the ingredients that are in season now.</p>  
-          </div>
-          <div class="card-footer text-center border-0 bg-transparent">
-            <a href =" {{ url_for('ingredients') }}"class="btn-primary btn steps-section-button py-3">Ingredients</a>
-          </div>
+            <p class="card-text steps-text py-3">Find the ingredients that are in season now.</p>
         </div>
-        <div class="card py-5">
-            <div class="card-body text-center">
-                <i class="fas fa-utensils fa-3x"></i>
-                <h3 class="steps-heading py-3">Step 2</h3>
-                <p class="steps-text py-3"> Find delicious recipes that use those ingredients and enjoy!</p>
-            </div>
-            <div class="card-footer text-center border-0 bg-transparent">
-                <a href =" {{ url_for('recipes') }}" class="btn-primary btn steps-section-button py-3">Recipes</a>
-            </div>
-          </div>
-          <div class="card py-5">
-            <div class="card-body text-center">
-                <i class="fas fa-users fa-3x"></i>
-                <h3 class="steps-heading py-3" >Step 3</h3>
-                <p class="steps-text py-3">Save and share your favourite recipes with our community </p> 
-            </div>
-            <div class="card-footer text-center border-0 bg-transparent">
-                <a class="btn-primary btn steps-section-button py-3" data-bs-toggle="modal" data-bs-target="#registerModal">Join</a>
-            </div>
-          </div>
-       
-      </div>
+        <div class="card-footer text-center border-0 bg-transparent">
+            <a href=" {{ url_for('ingredients') }}" class="btn-primary btn steps-section-button py-3">Ingredients</a>
+        </div>
+    </div>
+    <div class="card py-5">
+        <div class="card-body text-center">
+            <i class="fas fa-utensils fa-3x"></i>
+            <h3 class="steps-heading py-3">Step 2</h3>
+            <p class="steps-text py-3"> Find delicious recipes that use those ingredients and enjoy!</p>
+        </div>
+        <div class="card-footer text-center border-0 bg-transparent">
+            <a href=" {{ url_for('recipes') }}" class="btn-primary btn steps-section-button py-3">Recipes</a>
+        </div>
+    </div>
+    <div class="card py-5">
+        <div class="card-body text-center">
+            <i class="fas fa-users fa-3x"></i>
+            <h3 class="steps-heading py-3">Step 3</h3>
+            <p class="steps-text py-3">Save and share your favourite recipes with our community </p>
+        </div>
+        <div class="card-footer text-center border-0 bg-transparent">
+            <a class="btn-primary btn steps-section-button py-3" data-bs-toggle="modal"
+                data-bs-target="#registerModal">Join</a>
+        </div>
+    </div>
 
-   
+</div>
+
+
 {% endblock %}

@@ -11,6 +11,7 @@ html {
 @media screen and (min-width:320px) {
     .hero-img {
         position: relative;
+        
     }
 
     .cover-text {
@@ -269,12 +270,7 @@ left:0;
     50% {
       opacity: 50%;
     }
-    from {
-      color:#465f21 ;
-    }
-    to {
-      color: #90AF4C;
-    }
+    
   }
 
 
@@ -344,3 +340,9 @@ left:0;
         border-color: #465f21;
     }
 
+.recipe-img{
+height:350px;
+background-size: cover;
+background-position: center ;
+
+}

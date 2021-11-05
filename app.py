@@ -101,7 +101,7 @@ def saverecipe(recipe_id):
             flash ("Recipe saved!")
             return redirect(url_for('myrecipes', username = username)) 
         
-        
+
 @app.route("/myrecipes/<username>", methods=["GET", "POST"])
 def myrecipes(username):
     email = mongo.db.users.find_one(
@@ -186,7 +186,11 @@ def editrecipe(recipe):
 def delete_recipe(recipe):
     username = username = mongo.db.users.find_one(
         {"email": session["current_user"]})['email']
+    # Delte Recipe from recipe collection
     mongo.db.recipes.remove({"_id": ObjectId(recipe)})
+    # Remove recipe from user's favourite recipe collection if saved
+    print(recipe)
+    mongo.db.users.update({'email':username},{"$pull": {"favourite_recipes":recipe}})
     flash('Recipe Deleted')
     return redirect(url_for('myrecipes', username = username))
 

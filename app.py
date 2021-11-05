@@ -77,7 +77,7 @@ def getingredientrecipes():
             selected_ingredient = request.form["currentmonthbutton"]
             recipes = list(mongo.db.recipes.find(
                 {"$text": {"$search": selected_ingredient}}))
-            return render_template("recipes.html", recipes=recipes, selected_ingredient=selected_ingredient)
+            return render_template("recipes.html", recipes = recipes, selected_ingredient = selected_ingredient)
 
 
 @app.route("/fullrecipe/<recipe>",  methods=["GET", "POST"])
@@ -86,25 +86,22 @@ def fullrecipe(recipe):
     recipe = mongo.db.recipes.find_one({"recipe_name": request.form["fullrecipebtn"]})
     return render_template("fullrecipe.html", recipe=recipe)
 
-@app.route("/fullrecipe/saverecipe/<recipe>",  methods=["GET", "POST"])
+@app.route("/saverecipe/<recipe_id>",  methods=["GET", "POST"])
 
-def saverecipe(recipe):
+def saverecipe(recipe_id):
     
     if session['current_user']:
-        recipe_id = request.form['saverecipebtn']
-        recipe = session.get('recipe')
         username = mongo.db.users.find_one(
             {"email": session["current_user"]})['email']
-        if mongo.db.users.find_one({"favourite_recipes":recipe_id}):
+        if mongo.db.users.find_one({"email" : username,'favourite_recipes' : recipe_id}):
             flash ('Recipe already saved')
             return redirect(url_for('myrecipes', username = username)) 
-        else:     
+        else:    
             mongo.db.users.update({'email':username},{"$push": {"favourite_recipes":recipe_id}})
             flash ("Recipe saved!")
             return redirect(url_for('myrecipes', username = username)) 
         
-
-
+        
 @app.route("/myrecipes/<username>", methods=["GET", "POST"])
 def myrecipes(username):
     email = mongo.db.users.find_one(
@@ -150,7 +147,7 @@ def uploadrecipe():
         mongo.db.recipes.insert_one(recipe)
         flash ("Recipe added")      
         
-        return redirect(url_for('myrecipes'))
+        return redirect(url_for('myrecipes', username=username))
 
     return render_template('uploadrecipe.html', ingredients = ingredients)
 
@@ -179,14 +176,22 @@ def editrecipe(recipe):
         mongo.db.recipes.update(({"_id": ObjectId(recipe)}), updated_recipe)
         flash ("Recipe updated")      
         
-        return redirect(url_for('homepage'))
+        return redirect(url_for('myrecipes', username = username))
 
     return render_template("editrecipe.html", username = username, recipe = recipe, 
     ingredients = ingredients, recipe_info = recipe_info, categories = categories)
 
+@app.route("/delete_recipe/<recipe>", methods = ["GET","POST"])
+
+def delete_recipe(recipe):
+    username = username = mongo.db.users.find_one(
+        {"email": session["current_user"]})['email']
+    mongo.db.recipes.remove({"_id": ObjectId(recipe)})
+    flash('Recipe Deleted')
+    return redirect(url_for('myrecipes', username = username))
 
 
-@app.route("/register.html", methods=["GET", "POST"])
+@app.route("/register.html", methods = ["GET", "POST"])
 def register():
     if request.method == "POST":
 
@@ -211,8 +216,6 @@ def register():
         session["current_user"] = request.form.get("email").lower()
         return redirect(url_for("homepage"))
         
-     
-
     return render_template("register.html")
 
 @app.route("/login.html", methods=["GET", "POST"])

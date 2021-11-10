@@ -38,8 +38,8 @@
 
 <div class="container-fluid ">
     <div class="row">
-        <div class="col">
-            <h3 class="mx-3 my-3">You haven't saved any recipes yet.</h1>
+        <div class="col text-center ">
+            <p class="mx-3 text-muted my-3">You haven't saved any recipes yet.</p>
         </div>
     </div>
 
@@ -54,6 +54,8 @@
         </div>
     </div>
 </div>
+
+{% if authored_recipes %}
 <div class="container-fluid">
         <div class="row">
             <div class="col text-center">
@@ -63,10 +65,7 @@
             </div>
         </div>
     </div>
-{% if authored_recipes %}
 <div class="container-fluid">
-
-
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         {% for recipe in authored_recipes %}
         <div class="col">
@@ -97,7 +96,7 @@
   
 
 
-    {% else %}
+{% else %}
     <div class="container-fluid ">
         <div class="row">
             <div class="col">

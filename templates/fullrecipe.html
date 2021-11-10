@@ -3,7 +3,7 @@
 <div class="container position-relative">
     <div class="row">
         <div class="col">
-            <h1 class='text-center'>{{recipe.recipe_name}} </h1>
+            <h1 class='text-center'>{{recipe.recipe_name.capitalize()}} </h1>
             <p class='text-center fst-italic'> {{recipe.recipe_description}}</p>
 
         </div>
@@ -18,7 +18,7 @@
         <h2 class='mb-3'>Ingredients</h2>
         <ul class=" card-columns">
             {% for ingredient in recipe.recipe_ingredients %}
-            <li class="mb-3">{{ ingredient }}</li>
+            <li class="mb-3">{{ ingredient.capitalize() }}</li>
             {% endfor  %}
         </ul>
     </div>
@@ -30,7 +30,7 @@
         <h2>Method</h2>
         <ol>
             {% for step in recipe.method %}
-            <li class="my-3">{{ step }}</li>
+            <li class="my-3">{{ step.capitalize() }}</li>
             {% endfor  %}
 
         </ol>

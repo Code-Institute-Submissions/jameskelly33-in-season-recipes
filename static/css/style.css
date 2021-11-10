@@ -238,7 +238,7 @@ left:0;
 .form-card-header{
     background-color: #90AF4C;
 }
-
+/* Box-shadow inspired from this this article https://www.joshwcomeau.com/css/designing-shadows/ */
 .card-forms{
     box-shadow:
       0 6px 6px hsl(0deg 0% 0% / 0.3);

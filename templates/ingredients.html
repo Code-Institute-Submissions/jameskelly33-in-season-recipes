@@ -13,14 +13,14 @@
     {% for ingredient in ingredients if ingredient.ingredient_name in current_ingredients %}
 
     <div class="card border-0">
-        <h4 class="card-title text-center">{{ ingredient.ingredient_name }}</h4>
+        <h4 class="card-title text-center">{{ ingredient.ingredient_name.capitalize()}}</h4>
         <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100"
             alt="{{ ingredient.ingredient_name }}, {{ingredient.ingredient_description}}">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
             <form method='POST' action="{{ url_for('getingredientrecipes')}}">
                 <button id='currentmonthbutton' type='submit' value="{{ ingredient.ingredient_name }}"
-                    name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name}}
+                    name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name.capitalize()}}
                     Recipes</button>
 
             </form>
@@ -44,13 +44,13 @@
 <div id="next-month-carousel" class="owl-carousel owl-theme px-5">
     {% for ingredient in ingredients  if ingredient.ingredient_name in next_month_ingredients %}
     <div class="card border-0">
-        <h4 class="card-title text-center">{{ ingredient.ingredient_name}}</h4>
+        <h4 class="card-title text-center">{{ ingredient.ingredient_name.capitalize()}}</h4>
         <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100" alt="...">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
             <form method='POST' action="{{ url_for('getingredientrecipes')}}">
                 <button id='nextmonthbutton' type='submit' value="{{ ingredient.ingredient_name }}"
-                    name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name}}
+                    name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name.capitalize()}}
                     Recipes</button>
 
             </form>

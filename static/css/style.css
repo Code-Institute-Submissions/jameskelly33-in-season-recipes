@@ -118,8 +118,8 @@ html {
         top: 100px;
         right:100px;
         text-align: right;
-        
-        
+      
+    
     }
     
     .hero-img-heading {
@@ -127,12 +127,15 @@ html {
         font-size: 4vw;
         letter-spacing: 1.5vw;
         font-weight: 400;
+        
+       
     }
     
     .hero-img-sub-heading {
         margin-top: 2vh;
         font-size: 1.5vw;
         font-weight: 300;
+       margin-right:1.5vw;
     }
     
     .hero-img-btn {
@@ -140,6 +143,7 @@ html {
         background-color: #fe7101;
         border-color: #fe7101;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-right:1.5vw;
     }
     .hero-img-btn:hover{
         background-color: #bb5908;

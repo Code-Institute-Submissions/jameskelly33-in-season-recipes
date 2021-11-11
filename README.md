@@ -232,7 +232,7 @@ The information architecture was designed from the standpoint of a user’s firs
 | Title | Key in db | form validation type | Data type |
 --- | --- | --- | --- 
 Account ID | _id | None | ObjectId 
-Name | username | text, `minlength="3"` 'maxlength="15"'| string
+Name | username | text, `minlength="3"` `maxlength="15"`| string
 Email Address | email | email, `maxlength="50"` | string
 Password | password | text, `minlength=”5” maxlength="15"` | string
 Favourite Recipes | favourite_recipes | None | list
@@ -262,12 +262,12 @@ Ingredient Image | ingredient_image | None | string (representing a static url i
 | Title | Key in db | form validation type | Data type |
 --- | --- | --- | --- 
 Recipe ID | _id | None | ObjectId
-Recipe Name | recipe_name | text | string
-Recipe Description | recipe_description | text, ‘maxlength = “50”’ 
+Recipe Name | recipe_name | text, `max-length = "50"`| string
+Recipe Description | recipe_description | text, `max-length = “150”` 
 Recipe Ingredients | recipe_ingredients | None | string
 Method | method | None | string
 Recipe Image | recipe_image | None | string (representing a static url in the project folder)
 Recipe Author | recipe_author | None | string (representing a user’s email)
 Recipe Category | recipe_category | Select | string
 Seasonal Ingredient | seasonal_ingredient |Select | string
-Cuisine | cuisine | None | string
+Cuisine | cuisine | text, `max-length = "50"` | string

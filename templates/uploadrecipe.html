@@ -13,18 +13,19 @@
                             <div class="my-3">
                                 <label for="recipe_name" class="form-label">Recipe Name</label>
                                 <input type="text" class="form-control" id="recipe_name" name="recipe-name"
-                                    placeholder="Recipe Name" required>
+                                    placeholder="Recipe Name" maxlength="50" required>
                             </div>
                             <div class="mb-3">
                                 <label for="recipe-description" class="form-label">Recipe Description</label>
                                 <textarea type="text" class="form-control" id="recipe-description" rows="2"
-                                    name="recipe-description" placeholder="Short description of recipe" required></textarea>
+                                    name="recipe-description" placeholder="Short description of recipe" maxlength="150" required></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="seasonal-ingredient">Seasonal Ingredient</label>
                                 <select class="form-select" aria-label="Seasonal Ingredient Select Form" id='seasonal-ingredient'
                                     name='seasonal-ingredient' required>
-                                    <option selected>Choose Ingredient</option>
+                                    <!-- First Value Empty to ensure Required attribute works -->
+                                    <option value = "">Choose Ingredient</option> 
                                     {% for ingredient in ingredients %}
                                     <option value="{{ ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
                                     {% endfor  %}
@@ -42,8 +43,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="dish-category">Dish Category</label>
-                                <select class="form-select" aria-label="Dish Category" id='dish-category' name='dish-category'
-                                    required>
+                                <select class="form-select" aria-label="Dish Category" id='dish-category' name='dish-category'>
                                     <option selected>Choose dish type</option>
                                     <option value="main">Main</option>
                                     <option value="starter">Starter</option>
@@ -53,7 +53,7 @@
                             <div class='mb-3'>
                                 <label for="cuisine" class="form-label">Type of Cuisine</label>
                                 <input type="text" class="form-control" id="cuisine" name="cuisine"
-                                    placeholder="eg French, Irish, Italian">
+                                    placeholder="eg French, Irish, Italian" maxlength="50">
                             </div>
                             <div class="mt-5">
                                 <button type="submit" class="btn btn-primary form-btn">Upload Recipe</button>

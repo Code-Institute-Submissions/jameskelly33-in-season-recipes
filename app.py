@@ -20,6 +20,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
 # Enabled to remove extra whitespace from edit recipe form.
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
@@ -82,7 +83,6 @@ def getingredientrecipes():
 
 @app.route("/fullrecipe/<recipe>",  methods=["GET", "POST"])
 def fullrecipe(recipe):
-    session['recipe'] = recipe
     recipe = mongo.db.recipes.find_one({"recipe_name": request.form["fullrecipebtn"]})
     return render_template("fullrecipe.html", recipe=recipe)
 
@@ -128,8 +128,10 @@ def myrecipes(username):
 
 @app.route("/uploadrecipe.html", methods = ['GET', "POST"])
 def uploadrecipe():
-    username = mongo.db.users.find_one(
+    email = mongo.db.users.find_one(
         {"email": session["current_user"]})['email']
+    username = mongo.db.users.find_one(
+        {"email": session["current_user"]})['username']
     ingredients = mongo.db.ingredients.find()  
     if request.method == "POST":
         recipe= {
@@ -140,14 +142,14 @@ def uploadrecipe():
             "method": request.form.get('method').splitlines(),
             "recipe_category": request.form.get('dish-category'),
             "cuisine": request.form.get('cuisine'),
-            "recipe_author": username,
-            "rating":4,
+            "recipe_author": email,
+            "recipe_author_username":username,
             "recipe_image":f"/static/images/{request.form.get('seasonal-ingredient')}.jpg"
         }
         mongo.db.recipes.insert_one(recipe)
         flash ("Recipe added")      
         
-        return redirect(url_for('myrecipes', username=username))
+        return redirect(url_for('myrecipes', username = username, email = email))
 
     return render_template('uploadrecipe.html', ingredients = ingredients)
 
@@ -155,8 +157,10 @@ def uploadrecipe():
 def editrecipe(recipe):
     ingredients= mongo.db.ingredients.find()
     categories = ["Starter", "Main", "Dessert"]
-    username = mongo.db.users.find_one(
+    email = mongo.db.users.find_one(
         {"email": session["current_user"]})['email']
+    username = mongo.db.users.find_one(
+        {"email": session["current_user"]})['username']
     def getrecipebyId(recipeID):
         return mongo.db.recipes.find_one({"_id": ObjectId(recipeID)})
     recipe_info = getrecipebyId(recipe)
@@ -169,14 +173,14 @@ def editrecipe(recipe):
             "method": request.form.get('method').splitlines(),
             "recipe_category": request.form.get('dish-category'),
             "cuisine": request.form.get('cuisine'),
-            "rating":4,
             "recipe_image":f"/static/images/{request.form.get('seasonal-ingredient')}.jpg",
-            "recipe_author": username,
+            "recipe_author": email,
+            "recipe_author_username":username
         }
         mongo.db.recipes.update(({"_id": ObjectId(recipe)}), updated_recipe)
         flash ("Recipe updated")      
         
-        return redirect(url_for('myrecipes', username = username))
+        return redirect(url_for('myrecipes', username = username, email = email))
 
     return render_template("editrecipe.html", username = username, recipe = recipe, 
     ingredients = ingredients, recipe_info = recipe_info, categories = categories)

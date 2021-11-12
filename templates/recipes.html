@@ -13,16 +13,24 @@
   <div class="row">
     <div class="col">
       <form class="d-flex" method="POST" action="{{ url_for('search')}}">
-
-        <input id="query" class="form-control me-2" type="text" name='query'
-          placeholder="Recipe, ingredient, or cuisine" aria-label="Search">
-
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input id="query" class="form-control me-2" type="search" name='query'
+          placeholder="Recipe, ingredient, or cuisine" aria-label="Search" required>
+        <button class="btn btn-primary form-btn" type="submit">Search</button>
       </form>
     </div>
   </div>
 </div>
+{% if not recipes %}
+<div class ="container">
+  <div class="row">
+    <div class="col text-center">
+      <img class = "img-fluid" src="{{url_for('static', filename = 'images/sadfaceplate.jpg') }}" alt="An Empty plate with a sad face on it">
+      <p class="text-lead my-3">Sorry, it looks like we don't have any recipes for that yet.</p>
+    </div>
+  </div>
 
+</div>
+{% endif %}
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
   {% for recipe in recipes %}
   <div class="col">

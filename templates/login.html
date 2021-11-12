@@ -12,12 +12,12 @@
                     <form method='POST' action=" {{ url_for('login')}}">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="username" name="email" placeholder="Email">
+                            <input type="email" class="form-control" id="username" name="email" placeholder="Email" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" name="password" id="password"
-                                placeholder="Password">
+                                placeholder="Password" required>
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary mb-3 form-btn">Log In</button>

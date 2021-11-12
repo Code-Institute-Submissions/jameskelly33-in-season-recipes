@@ -12,18 +12,18 @@
                 <div class="card-body">
                     <form method='POST' action="{{ url_for ('editrecipe', recipe=recipe)}}">
                         <div class="my-4">
-                            <label for="recipe_name" class="form-label">Recipe Name</label>
+                            <label for="recipe_name" class="form-label form-label-required">Recipe Name</label>
                             <input type="text" class="form-control" id="recipe_name" name="recipe-name"
                                 value="{{recipe_info.recipe_name}}" placeholder="Recipe Name" maxlength="50" required>
                         </div>
                         <div class="mb-4">
-                            <label for="recipe-description" class="form-label">Recipe Description</label>
+                            <label for="recipe-description" class="form-label form-label-required">Recipe Description</label>
                             <textarea type="text" class="form-control" id="recipe-description" rows="2"
                                 name="recipe-description" placeholder="Short description of recipe" required
                                 maxlength="150">{{recipe_info.recipe_description}}</textarea>
                         </div>
                         <div class="mb-4">
-                            <label for="seasonal-ingredient">Seasonal Ingredient</label>
+                            <label for="seasonal-ingredient" class ="form-label-required">Seasonal Ingredient</label>
                             <select class="form-select" aria-label="Seasonal Ingredient Select Form"
                                 id='seasonal-ingredient' name='seasonal-ingredient' required>
                                 <!-- First Value Empty to ensure Required attribute works -->
@@ -41,7 +41,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="ingredients" class="form-label">Ingredients</label>
-                            <textarea class="form-control" id="ingredients" name="ingredients" rows="10"
+                            <textarea class="form-control form-label-required" id="ingredients" name="ingredients" rows="10"
                                 placeholder="Start a new line for each ingredient" required>
                                         {% for recipe_ingredient in recipe_info.recipe_ingredients -%}
                                         {{recipe_ingredient}}
@@ -49,7 +49,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="method" class="form-label">Method</label>
-                            <textarea class="form-control" id="method" name="method" rows="10"
+                            <textarea class="form-control form-label-required" id="method" name="method" rows="10"
                                 placeholder="Start a new line for each step " required>
                                         {% for step in recipe_info.method -%}
                                         {{step}}

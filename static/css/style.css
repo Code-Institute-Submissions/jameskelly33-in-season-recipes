@@ -350,3 +350,8 @@ background-size: cover;
 background-position: center ;
 
 }
+.form-label-required:after {
+    content:"*";
+    color:red;
+    margin-left: 10px;
+  }

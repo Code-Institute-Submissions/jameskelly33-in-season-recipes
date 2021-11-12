@@ -11,17 +11,17 @@
                     <div class="card-body">
                         <form method='POST' action="{{ url_for ('uploadrecipe')}}">
                             <div class="my-3">
-                                <label for="recipe_name" class="form-label">Recipe Name</label>
+                                <label for="recipe_name" class="form-label form-label-required">Recipe Name</label>
                                 <input type="text" class="form-control" id="recipe_name" name="recipe-name"
                                     placeholder="Recipe Name" maxlength="50" required>
                             </div>
                             <div class="mb-3">
-                                <label for="recipe-description" class="form-label">Recipe Description</label>
+                                <label for="recipe-description" class="form-label form-label-required">Recipe Description</label>
                                 <textarea type="text" class="form-control" id="recipe-description" rows="2"
                                     name="recipe-description" placeholder="Short description of recipe" maxlength="150" required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="seasonal-ingredient">Seasonal Ingredient</label>
+                                <label class = "form-label-required"for="seasonal-ingredient">Seasonal Ingredient</label>
                                 <select class="form-select" aria-label="Seasonal Ingredient Select Form" id='seasonal-ingredient'
                                     name='seasonal-ingredient' required>
                                     <!-- First Value Empty to ensure Required attribute works -->
@@ -32,12 +32,12 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="ingredients" class="form-label">Ingredients</label>
+                                <label for="ingredients" class="form-label form-label-required">Ingredients</label>
                                 <textarea class="form-control" id="ingredients" name="ingredients" rows="10"
                                     placeholder="Start a new line for each ingredient " required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="method" class="form-label">Method</label>
+                                <label for="method" class="form-label form-label-required">Method</label>
                                 <textarea class="form-control" id="method" name="method" rows="10"
                                     placeholder="Start a new line for each step" required></textarea>
                             </div>

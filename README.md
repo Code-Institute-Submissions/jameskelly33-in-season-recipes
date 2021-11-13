@@ -2,7 +2,7 @@
 
 # **In Season Recipe Website**
 
-![A mock-up of the website on different devices](# "Mock Up of the site")
+![A mock-up of the website on different devices](static/images/screenshots/homepagescreenshot.png "Mock Up of the site")
 
 
 ## **Project Goals**
@@ -92,14 +92,13 @@ As a regular visitor to In Season, I want/need:
 	
 * **Font**
 There is only one font used throughout the website, which is Lora- a contemporary serif font with moderate contrast. This font was chosen primarily for its suitability to stand out equally well in the body text of the recipes and the headings found throughout the site.  
+
 * **Colours**
 As the site will feature a host of images of different ingredients and recipes the majority of pages’ content will be inherently  colourful. As a result I have chosen to keep custom colours on the site to a minimum to let the images stand out. Depending on the size of screen., the homepage will either show an image of fresh tomatoes or asparagus, I used the Color Palette Picker Chrome extension to match the colour of the displayed ingredient to the buttons on the homepage.
 
 On all other pages throughout the site the buttons and card headers for login/register forms use the green asparagus colour. 
 
 ## **Features**
-
-### **Existing Features**
 
 ### **On Every Page**
 
@@ -113,7 +112,7 @@ If the user is logged in then a My Recipes link is activated and a log out link 
 
 ### **Homepage**
 
-![A screenshot of the homepage](# "Screenshot of the homepage")
+![A screenshot of the homepage](static/images/screenshots/homepagescreenshot.png "Screenshot of the homepage")
 
 **Hero-Image**
 
@@ -128,6 +127,8 @@ As stated previously in the Colours Section, I decided to match the colour of th
 
 **Card Panels**
 
+![A screenshot of the card panels](static/images/screenshots/cardpanels.png "Screenshot of the card panels on the homepage")
+
 Below the hero image are three cards guiding the user through the process of using the website.
 1. Step 1 - Find what ingredients are in season.
 This button will take users to the next page which shows what ingredients are currently in season in Ireland.
@@ -139,7 +140,7 @@ This button launches the register page in which users can sign up to the site an
 
 ### **In Season Page**
 
-![A screenshot of the in season page](# "Screenshot of the In Season Page")
+![A screenshot of the in season page](static/images/screenshots/ingredientsscreenshot.png "Screenshot of the In Season Page")
 
 **Carousels**
 
@@ -148,7 +149,7 @@ On large screens the user should see three slides per row, medium screens two an
 Each ingredient image has a button below which when clicked will take the user to recipe section showing every recipe that uses that ingredient. 
 
 ### **Recipes Page**
-![A screenshot of the recipes page](# "Screenshot of the Recipes Page")
+![A screenshot of the recipes page](static/images/screenshots/recipesscreenshot.png "Screenshot of the Recipes Page")
 
 
 This page shows the full library of recipes available on the site. There is a search bar through which the user can search for the name of a recipe, a single ingredient or cuisine type or category(e.g. Italian, dessert etc. Each recipe appears on a bootstrap card with a recipe image, recipe name and short description and a button leading to a full-page version of that particular recipe. The page has a responsive design therefore on larger screens(>=992px) and above the recipes are displayed three per row and 2 per row on medium screens(>=768px) and one per row on small screens(>=320px). 
@@ -157,7 +158,7 @@ If a user selects one of the ‘In Season’ ingredients from the In Season page
 
 GIF OF SELECTION
 ### **Full Recipe Page**
-![A screenshot of the full recipe page](# "Screenshot of the Full Recipe Page")
+![A screenshot of the full recipe page](static/images/screenshots/fullrecipescreenshot.png "Screenshot of the Full Recipe Page")
 
 Once a user has selected the Get Full Recipe button from the recipes page it will take them to the full version of the recipe as seen above. The recipe name, description and image are all shown, along with the ingredients in a unordered list and a ordered list of the recipe method. On large screens and above the ingredients appear to the right of the image and method below, whereas for all other screens the information flow is vertically aligned. 
 
@@ -168,17 +169,17 @@ The user who submitted the recipe will be given credit below the ‘Save Recipe�
 
 
 ### **My Recipes Page**
-![A screenshot of the my recipes page](# "Screenshot of the My Recipes Page")
+![A screenshot of the my recipes page](static/images/screenshots/myrecipes.png  "Screenshot of the My Recipes Page")
 
 When a user has successfully logged on to the site they will be able to navigate to the My Recipes section of the site which is divided into two parts.
 1. Favourite Recipes
 This section shows any recipe the user has saved to their favourites by clicking the ‘Save Recipe’ button on the full recipe page. If there are no recipes saved this section will display text saying ‘You haven’t saved any recipes yet”. The layout for this section is exactly the same as the main recipes page in showing rows of Bootstrap cards with recipe image, name, ,description and ‘Get Full Recipe Button”.
-
+![A screenshot of the my recipes page](static/images/screenshots/myrecipes2.png  "Screenshot of the My Recipes Page")
 2. My Recipes
 This section shows any recipes the current user has uploaded to the site. The layout is the same as the section above however as these are user-generated recipes there are two extra buttons on each recipe card. 
 The edit recipe button allows a user to edit a recipe that they previously uploaded. Upon clicking the button the user is taken to edit recipe page seen below.
 
-INSERT SCREENSHOT OF EDIT RECIPE
+![A screenshot of the edit recipes page](static/images/screenshots/editrecipe.png "Screenshot of the My Recipes Page")
 
 The form appears with the current information stored about the recipe and the user can change any field and re-submit the updated recipe to the site. 
 
@@ -189,7 +190,7 @@ The third button on the my recipe page is ‘Delete Recipe’ which gives the us
 At the bottom of the My Recipes page is the ‘Upload Recipe” button 
 
 ### **Upload Recipe Page**
-![A screenshot of the upload recipe page](# "Screenshot of the Upload Recipe Page Page")
+![A screenshot of the upload recipe page](static/images/screenshots/uploadrecipe.png "Screenshot of the Upload Recipe Page Page")
 
 The upload recipe page consists of a Bootstrap form in which users can input a recipe’s name and short description. There is a select box which the user can pick one Seasonal Ingredient which is included in the recipe which allows the recipe to be linked to a particular ingredient. 
 
@@ -199,13 +200,13 @@ Below the method text area is a dish category select box which has three choices
 At the bottom of the form is a submit button labelled ”Upload Recipe” which will validate and submit the completed form and a flash message will appear confirming the upload and the user will be redirected to the My
 
 ### **Log In Page**
-![A screenshot of the log in page](# "Screenshot of the Log In Page")
+![A screenshot of the log in page](static/images/screenshots/login.png "Screenshot of the Log In Page")
 
 The log in page is a bootstrap card with a header and footer and two input fields of email and password. The card header’s background colour matches the green shade used throughout the site for all buttons and there is a link to register in the card footer if the user does not already have an account. If the user enters and incorrect email or password then a flash message appears indicating an error was made with either email/ password. 
 After successfully logging in a flash message appears confirming the user is logged in and they are taken to homepage and the added ‘My Recipes’ and ‘ Log Out’ links are activated on the nav bar. 
 
 ### **Register Page**
-![A screenshot of the register page](# "Screenshot of the Register Page")
+![A screenshot of the register page](static/images/screenshots/register.png "Screenshot of the Register Page")
 
 The register page is a bootstrap card with a header and footer and four input fields of username, email, password and confirm password. The card header’s background colour matches the green shade used throughout the site for all buttons and there is a link to log in in the card footer if the user already has an account. 
 The form uses standard HTML validation and will not submit unless the following validation checks pass.
@@ -268,6 +269,7 @@ Recipe Ingredients | recipe_ingredients | None | string
 Method | method | None | string
 Recipe Image | recipe_image | None | string (representing a static url in the project folder)
 Recipe Author | recipe_author | None | string (representing a user’s email)
+Recipe Author's Username | recipe_author_username | text | string
 Recipe Category | recipe_category | Select | string
 Seasonal Ingredient | seasonal_ingredient |Select | string
 Cuisine | cuisine | text, `max-length = "50"` | string

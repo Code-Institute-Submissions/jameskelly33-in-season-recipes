@@ -23,11 +23,13 @@
                 <p class="card-text">{{ recipe.recipe_description}}</p>
             </div>
             <div class="card-footer bg-transparent border-0">
-                <form method='POST' action="{{ url_for('fullrecipe', recipe = recipe.recipe_name.capitalize())}}">
-                    <button id='fullrecipebtn' type='submit' value="{{ recipe.recipe_name.capitalize() }}" name='fullrecipebtn'
-                        class="btn btn-primary recipe-btn">Get Full Recipe</button>
+                
+                    <a id='fullrecipebtn' type='submit' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
+                        class="btn btn-primary recipe-btn">Get Full Recipe</a>
 
-                </form>
+                
+                <a id='remove-saved-recipe-btn' href="{{url_for('remove_recipe', recipe_id = recipe._id)}}" name='emove-saved-recipe-btn'
+                            class="btn btn-primary btn-small recipe-btn mx-2">Remove Saved Recipe</a>
 
             </div>
         </div>
@@ -77,11 +79,10 @@
                 </div>
                 <div class="card-footer bg-transparent border-0 ">
                     <div class="btn-group" role="group" aria-label="Recipe Button Group">
-                        <form method='POST' action="{{ url_for('fullrecipe', recipe = recipe.recipe_name)}}">
-                            <button id='fullrecipebtn' type='submit' value="{{ recipe.recipe_name }}"
-                                name='fullrecipebtn' class="btn btn-primary btn-small recipe-btn mx-2">Full
-                                Recipe</button>
-                        </form>
+                        
+                        <a  type='submit' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
+                        class="btn btn-primary recipe-btn">Get Full Recipe</a>
+                     
                         <a id='editrecipebtn' href="{{url_for('editrecipe', recipe = recipe._id)}}" name='editrecipebtn'
                             class="btn btn-primary btn-small recipe-btn mx-2">Edit Recipe</a>
                         <a id='deleterecipebtn' href= "{{url_for ('delete_recipe', recipe = recipe._id)}}"

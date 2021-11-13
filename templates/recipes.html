@@ -41,11 +41,11 @@
         <p class="card-text">{{ recipe.recipe_description}}</p>
       </div>
       <div class="card-footer bg-transparent border-0">
-        <form method='POST' action="{{ url_for('fullrecipe', recipe = recipe.recipe_name.capitalize())}}">
-          <button id='fullrecipebtn' type='submit' value="{{ recipe.recipe_name }}" name='fullrecipebtn'
-            class="btn btn-primary recipe-btn">Get Full Recipe</button>
+        
+          <a id='fullrecipebtn' href="{{url_for('fullrecipe', recipe_id= recipe._id)}}"  name='fullrecipebtn'
+            class="btn btn-primary recipe-btn">Get Full Recipe</a>
 
-        </form>
+    
 
       </div>
     </div>

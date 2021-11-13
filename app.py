@@ -42,6 +42,7 @@ def ingredients():
     now = datetime.now()
     current_month = now.strftime("%m")
     this_month = calendar.month_name[int(current_month)]
+    # Added special condition for December to avoid error when adding 1 to current month integer.
     if this_month == "December":
         next_month = "January"
     else:
@@ -81,10 +82,10 @@ def getingredientrecipes():
             return render_template("recipes.html", recipes = recipes, selected_ingredient = selected_ingredient)
 
 
-@app.route("/fullrecipe/<recipe>",  methods=["GET", "POST"])
-def fullrecipe(recipe):
-    recipe = mongo.db.recipes.find_one({"recipe_name": request.form["fullrecipebtn"]})
-    return render_template("fullrecipe.html", recipe=recipe)
+@app.route("/fullrecipe/<recipe_id>",  methods=["GET", "POST"])
+def fullrecipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("fullrecipe.html", recipe = recipe)
 
 @app.route("/saverecipe/<recipe_id>",  methods=["GET", "POST"])
 
@@ -100,6 +101,17 @@ def saverecipe(recipe_id):
             mongo.db.users.update({'email':username},{"$push": {"favourite_recipes":recipe_id}})
             flash ("Recipe saved!")
             return redirect(url_for('myrecipes', username = username)) 
+        
+
+@app.route("/remove_saved_recipe/<recipe_id>",  methods=["GET", "POST"])
+
+def remove_recipe(recipe_id):
+    if session['current_user']:
+        username = mongo.db.users.find_one(
+            {"email": session["current_user"]})['email']
+        mongo.db.users.update({'email':username},{"$pull": {"favourite_recipes":recipe_id}})   
+        flash ("Recipe removed from favourites")
+        return redirect(url_for('myrecipes', username = username))    
         
 
 @app.route("/myrecipes/<username>", methods=["GET", "POST"])
@@ -121,8 +133,7 @@ def myrecipes(username):
         {"recipe_author": session["current_user"]})
 
     if session['current_user']:
-        return render_template("myrecipes.html", username=username, 
-        user_recipes=user_recipes, user_recipe_list=user_recipe_list, authored_recipes=authored_recipes)
+        return render_template("myrecipes.html", username=username,user_recipes=user_recipes, user_recipe_list=user_recipe_list, authored_recipes=authored_recipes)
 
 
 
@@ -193,7 +204,6 @@ def delete_recipe(recipe):
     # Delte Recipe from recipe collection
     mongo.db.recipes.remove({"_id": ObjectId(recipe)})
     # Remove recipe from user's favourite recipe collection if saved
-    print(recipe)
     mongo.db.users.update({'email':username},{"$pull": {"favourite_recipes":recipe}})
     flash('Recipe Deleted')
     return redirect(url_for('myrecipes', username = username))
@@ -253,9 +263,7 @@ def logout():
     session.pop("current_user")
     return redirect(url_for("homepage"))
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

@@ -2,17 +2,14 @@
 
 ### **Automated Testing**
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. JSlint was used to check the quality of the javascript code and Prettier was used to format code across the project. 
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. The PEP8 onlince checker tool was used to check the python code is PEP8 compliant. JSlint was used to check the quality of the javascript code and Prettier was used to format code across the project. 
 
 * [W3C Markup Validator](https://validator.w3.org/) 
 * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 * [JSLint](https://www.jslint.com/)
 * [Prettier](https://prettier.io/)
+* [Python PEP8 Validator](http://pep8online.com/)
 
-### Lighthouse score
-
-The lighthouse score report in google chrome developer tools was used on the site with the following result. 
-[Lighthouse Score Report]()
 
 ## **Testing User Stories from User Experience (UX) Section**
 

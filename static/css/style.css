@@ -193,7 +193,8 @@ html {
 }
 
 /* Ingredients Page */
-
+/* Styling of the Owl Carousels and their navigation links was 
+inspired by this youtube tutorial https://www.youtube.com/watch?v=TlMJZcRAq6M&list=LL&index=6&t=1459s&ab_channel=CodingRiver */
 .card-img-top{
     height: 40vh;
     width:100%;
@@ -350,6 +351,8 @@ background-size: cover;
 background-position: center ;
 
 }
+
+/* Code for required asterisk inspired by an answer to this stack overflow post https://stackoverflow.com/questions/23141854/adding-asterisk-to-required-fields-in-bootstrap-3 */
 .form-label-required:after {
     content:"*";
     color:red;

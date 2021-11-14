@@ -37,7 +37,7 @@ def homepage():
 
 @app.route("/ingredients.html")
 def ingredients():
-    ingredients = list(mongo.db.ingredients.find())
+    ingredients = list(mongo.db.ingredients.find().sort("ingredient_name",1))
     # Get current month and next month for ingredients page.
     now = datetime.now()
     current_month = now.strftime("%m")
@@ -64,7 +64,7 @@ def ingredients():
 
 @app.route("/recipes.html")
 def recipes():
-    recipes = mongo.db.recipes.find()
+    recipes = mongo.db.recipes.find().sort("recipe_name",1)
     return render_template('recipes.html', recipes=recipes)
 
 

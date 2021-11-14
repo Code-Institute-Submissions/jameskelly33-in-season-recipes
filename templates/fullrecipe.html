@@ -5,7 +5,6 @@
         <div class="col">
             <h1 class='text-center'>{{recipe.recipe_name.capitalize()}} </h1>
             <p class='text-center fst-italic'> {{recipe.recipe_description}}</p>
-
         </div>
     </div>
 </div>
@@ -40,10 +39,10 @@
 <div class="row">
     <div class="col text-center py-5">
         {% if session.current_user %}
-        
-            <a href ="{{url_for('saverecipe', recipe_id = recipe._id)}}" id='saverecipebtn' type='submit'  name='saverecipebtn'
-                class="btn btn-lg btn-primary my-5 save-recipe-btn">Save Recipe</a>
-        
+
+        <a href="{{url_for('saverecipe', recipe_id = recipe._id)}}" id='saverecipebtn' name='saverecipebtn'
+            class="btn btn-lg btn-primary my-5 save-recipe-btn">Save Recipe</a>
+
         {% else %}
         <a href="{{ url_for('login')}}" class='btn btn-lg btn-primary save-recipe-btn'>Log In to Save Recipe
         </a>
@@ -52,7 +51,7 @@
 
 </div>
 
-</div>
+
 <div class="row">
     <div class="col mb-5 text-muted text-center">
         Recipe Submitted by {{ recipe.recipe_author_username}}

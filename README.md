@@ -273,3 +273,182 @@ Recipe Author's Username | recipe_author_username | text | string
 Recipe Category | recipe_category | Select | string
 Seasonal Ingredient | seasonal_ingredient |Select | string
 Cuisine | cuisine | text, `max-length = "50"` | string
+
+## **Technologies Used**
+
+### **Languages Used**
+* [HTML5](https://html.com/html5/)
+* [CSS3](https://www.w3.org/Style/CSS/Overview.en.html)
+* [Javascript](https://www.javascript.com/)
+* [Python](https://www.python.org)
+
+## **Frameworks, Libraries & Programs Used**
+
+* [MongoDB](https://www.mongodb.com/)
+    * Mongo DB was used as the database for this project storing recipes, ingredients and user information.
+
+*  [PyMongo](https://api.mongodb.com/python/current/) 
+    * Used to allow Python and MongoDB to communicate.  
+
+* [Flask](https://flask.palletsprojects.com/en/1.0.x/) 
+    * Used to build and render pages throughout the site.
+
+* [Jinja](http://jinja.pocoo.org/docs/2.10/)  
+    * Used to write code in the flask templates in a similar style to Python 
+* [Owl Carousel 2](https://owlcarousel2.github.io/OwlCarousel2/)
+    * Used to display In Seaon ingredients in a multi-slide carousel. 
+
+* [Bootstrap 5](https://getbootstrap.com/)
+    * Imported CSS and JS, utilised grid system, navbar, form control and modals.
+
+* [Google Fonts](https://fonts.google.com/)
+    * Google fonts were used to import the font into the style.css file which is used on all pages throughout the project.
+
+* [Git](https://git-scm.com/)
+    * Git was used for version control by utilizing VSCode to commit to Git and Push to GitHub.
+
+* [Github](https://github.com/)
+    * GitHub is used to store the projects code after being pushed from Git.
+
+* [Gitpod](https://gitpod.io/)
+    * Code was written and edited using the gitpod extension in chrome. 
+
+* [Balsamiq](https://balsamiq.com/)
+    * Balsamiq was used to create the wireframes during the design process.
+
+* [Colorpicker](http://colormind.io/bootstrap/)
+    * Used to match the colours in the images used in the site to the button and form elements.
+
+* [JSLint](https://www.jslint.com/)   
+    * Used to validate Javascript code.
+
+* [Prettier](https://prettier.io/)    
+    * Used to format HTML,CSS and Javascript code.
+
+* [Am I Responsive](http://ami.responsivedesign.is/) 
+    * Used to create images of the website on different screen sizes for the documentation. 
+
+* [JQuery](https://jquery.com) 
+    * Used to implement the Owl Carousel feaututes.
+
+* [FontAwesome](https://www.bootstrapcdn.com/fontawesome/) 
+    * Used to provide icons for the homepage
+
+* [Unsplash](https://unsplash.com/)
+    * Used to source images for the site, including the hero images, all ingrdient and recipe images. 
+
+## **Testing**
+
+Testing information can be found in this [separate file](testing.md). 
+
+
+## Deployment
+
+## How to deploy this project to Heroku
+
+To deploy this site to heroku the following steps need to be take.
+
+1. Create a requirements.txt file using the terminal command pip freeze > requirements.txt.
+
+2. Create a Procfile by typing in  terminal the command echo web: python app.py > Procfile, making sure to delete the last empty line.
+
+3. Add,  commit and push these two files to the github repository using git.  
+
+4. Go to the heroku website and sign in. 
+
+5. Click on the new app button on the dashboard choosing a name and a suitable region and then create app. 
+
+6. Go to the Deployment Method section and select GitHub.
+
+7. Search for the appropriate github repository and confirm the link. 
+
+8. Go to settings and clock on reveal Config Vars.
+
+
+Set the following config vars updating with your own passwords or Database Names:
+```
+IP  - 0.0.0.0
+PORT - 5000
+MONGO_URI -  'Your Mongo URI connection string'
+MONGO_DBNAME - 'Your DB name'
+SECRET_KEY - 'YOUR SECRET KEY"
+```
+9. Go back to the deploy section of your dashboard and enable automatic deploys
+
+10. Click on deploy brach to deploy your app. 
+
+
+## How to run this project locally
+
+To run this project locally you will need an IDE (e.g. VS Code/Gitpod) with PIP , Python 3 and Git installed. A free account at Mongo DB is also required.
+Below are the steps to run this project locally for Gitpod although steps may be different depending on the IDE used. 
+
+1. Clone the repository by navigating to the [GitHub Repository ](https://github.com/jameskelly33/in-season-recipes), and clicking on the code button with the dropdown arrow. 
+
+2. Click on the clipboard icon to copy the the respository Url.
+
+3. Open the terminal in your IDE and type `git clone`, and then paste the URL you copied earlier.
+
+4. Set up a new collection in MongoDB making sure to name the Database is named 'inSeason', with collections named 'users', 'months', 'ingredients' and 'recipes'. See the [Database Architecture] section for the exact data structures of each collection.
+
+5. Import all the required modules by typing the following command in the terminal.
+ 
+```
+pip -r requirements.txt.
+```
+
+6. Create an env.py file containing the following information.
+```python
+import os
+
+os.environ.setdefault('IP',"0.0.0.0")
+os.environ.setdefault('PORT',"5000")
+os.environ.setdefault('SECRET_KEY', "CREATE YOUR OWN SECRET KEY")
+os.environ.setdefault("MONGO_URI", "YOUR OWN MONGO_URI")
+os.environ.setdefault('MONGO_DBNAME', "inSeason")
+```
+
+7. Choose your own secret key.
+
+8. The Mongo_URI connection string can be accessed on MONGODB site by clicking on  the Connect to myFirstCluster button and then the Connect Your Application button. 
+
+9. After selecting your desired Python version copy the connection string into the env.py file replacing the "YOUR OWN MONGO_URI".
+
+10. You must remember to change the <password> part of the connection string with your own password chosen when you set up your MONGODB account and change  'myFirstDatabase" to 'inSeason"
+
+
+11.The databse is now connected and  you can now run the application with the command
+```
+python app.py
+```
+
+
+
+## Credits & Content
+
+All the images on the website were sourced from [Unsplash](https://unsplash.com/).
+
+The seasonal information about Irish ingredeitns was sourced from this very helpful [Bord Bia website](https://www.bordbia.ie/whats-in-season/best-in-season/calendar).
+
+All the recipes authored by In Season were created by James Kelly. 
+
+Any other recipes on the site are user generated and credit is given on the Full Recipe page for each recipe. 
+
+
+
+### Code
+
+* Button and form shadows were designed with inspiration from [this article on CSS shadows.](https://www.joshwcomeau.com/css/designing-shadows/)
+
+* Styling of the Owl Carousels and their navigation links was inspired by this [youtube tutorial](https://www.youtube.com/watch?v=TlMJZcRAq6M&list=LL&index=6&t=1459s&ab_channel=CodingRiver)
+
+*  Code for required asterisk inspired by an answer to [this stack overflow post](https://stackoverflow.com/questions/23141854/adding-asterisk-to-required-fields-in-bootstrap-3)
+
+
+
+
+### Acknowledgements 
+
+My CodeInstitute mentor, Antonija Simic, for her thorough and constructive feedback.
+
+My friends and family for helping testing the site and uploading their own recipes.

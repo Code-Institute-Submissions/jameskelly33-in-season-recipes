@@ -18,7 +18,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="recipe-description" class="form-label form-label-required">Recipe Description</label>
-                            <textarea type="text" class="form-control" id="recipe-description" rows="2"
+                            <textarea  class="form-control" id="recipe-description" rows="2"
                                 name="recipe-description" placeholder="Short description of recipe" required
                                 maxlength="150">{{recipe_info.recipe_description}}</textarea>
                         </div>
@@ -40,16 +40,16 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label for="ingredients" class="form-label">Ingredients</label>
-                            <textarea class="form-control form-label-required" id="ingredients" name="ingredients" rows="10"
+                            <label for="ingredients" class="form-labelf orm-label-required">Ingredients</label>
+                            <textarea class="form-control" id="ingredients" name="ingredients" rows="10"
                                 placeholder="Start a new line for each ingredient" required>
                                         {% for recipe_ingredient in recipe_info.recipe_ingredients -%}
                                         {{recipe_ingredient}}
                                         {% endfor %}</textarea>
                         </div>
                         <div class="mb-4">
-                            <label for="method" class="form-label">Method</label>
-                            <textarea class="form-control form-label-required" id="method" name="method" rows="10"
+                            <label for="method" class="form-label form-label-required">Method</label>
+                            <textarea class="form-control" id="method" name="method" rows="10"
                                 placeholder="Start a new line for each step " required>
                                         {% for step in recipe_info.method -%}
                                         {{step}}

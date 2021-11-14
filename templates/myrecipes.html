@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block content %} 
+{% block content %}
 
 
 <div class="container-fluid">
@@ -17,19 +17,21 @@
     {% for recipe in user_recipe_list %}
     <div class="col">
         <div class="card h-100 mx-2 px-3 py-5 border-0">
-            <div style="background-image: url({{ recipe.recipe_image }})"  class="recipe-img" alt="{{recipe.recipe_name.capitalize()}}, {{recipe.recipe_description}}"></div>
+            <div style="background-image: url({{ recipe.recipe_image }})" class="recipe-img"
+                alt="{{recipe.recipe_name.capitalize()}}, {{recipe.recipe_description}}"></div>
             <div class="card-body">
                 <h2 class="card-title "> {{ recipe.recipe_name.capitalize() }}</h2>
                 <p class="card-text">{{ recipe.recipe_description}}</p>
             </div>
             <div class="card-footer bg-transparent border-0">
-                
-                    <a id='fullrecipebtn' type='submit' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
-                        class="btn btn-primary recipe-btn">Get Full Recipe</a>
 
-                
-                <a id='remove-saved-recipe-btn' href="{{url_for('remove_recipe', recipe_id = recipe._id)}}" name='emove-saved-recipe-btn'
-                            class="btn btn-primary btn-small recipe-btn mx-2">Remove Saved Recipe</a>
+                <a id='fullrecipebtn' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
+                    class="btn btn-primary recipe-btn">Get Full Recipe</a>
+
+
+                <a id='remove-saved-recipe-btn' href="{{url_for('remove_recipe', recipe_id = recipe._id)}}"
+                    name='emove-saved-recipe-btn' class="btn btn-primary btn-small recipe-btn mx-2">Remove Saved
+                    Recipe</a>
 
             </div>
         </div>
@@ -59,51 +61,53 @@
 
 {% if authored_recipes %}
 <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <p class="mx-3 text-muted ">Click the button below to add your own recipes to the site</p>
-                    <a href="{{ url_for('uploadrecipe') }}" class="btn btn-primary mx-3 my-2 upload-recipe-btn">Upload
-                        Recipe</a>
-            </div>
+    <div class="row">
+        <div class="col text-center">
+            <p class="mx-3 text-muted ">Click the button below to add your own recipes to the site</p>
+            <a href="{{ url_for('uploadrecipe') }}" class="btn btn-primary mx-3 my-2 upload-recipe-btn">Upload
+                Recipe</a>
         </div>
     </div>
+</div>
 <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         {% for recipe in authored_recipes %}
         <div class="col">
             <div class="card h-100 mx-2 px-3 py-5 border-0">
-                <div style="background-image: url({{ recipe.recipe_image }})"  class="recipe-img" alt="{{recipe.recipe_name.capitalize()}}, {{recipe.recipe_description}}"></div>
+                <div style="background-image: url({{ recipe.recipe_image }})" class="recipe-img"
+                    alt="{{recipe.recipe_name.capitalize()}}, {{recipe.recipe_description}}"></div>
                 <div class="card-body">
                     <h2 class="card-title "> {{ recipe.recipe_name.capitalize() }}</h2>
                     <p class="card-text">{{ recipe.recipe_description}}</p>
                 </div>
                 <div class="card-footer bg-transparent border-0 ">
                     <div class="btn-group" role="group" aria-label="Recipe Button Group">
-                        
-                        <a  type='submit' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
-                        class="btn btn-primary recipe-btn">Get Full Recipe</a>
-                     
+
+                        <a href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
+                            class="btn btn-primary recipe-btn">Get Full Recipe</a>
+
                         <a id='editrecipebtn' href="{{url_for('editrecipe', recipe = recipe._id)}}" name='editrecipebtn'
                             class="btn btn-primary btn-small recipe-btn mx-2">Edit Recipe</a>
-                        <a id='deleterecipebtn' href= "{{url_for ('delete_recipe', recipe = recipe._id)}}"
+                            
+                        <a id='deleterecipebtn' href="{{url_for ('delete_recipe', recipe = recipe._id)}}"
                             class="btn btn-primary recipe-btn mx-2">Delete Recipe</a>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         {% endfor %}
     </div>
-  
 
 
-{% else %}
+
+    {% else %}
     <div class="container-fluid ">
         <div class="row">
             <div class="col">
-                <h3 class="mx-3 my-3">You haven't uploaded any recipes yet.</h1>
-                    <h3 class=" mx-3 my-3">Click the button below to add your own recipes to the site</h1>
-                        <a href="{{ url_for('uploadrecipe') }}" class="btn btn-primary mx-3 my-5">Upload Recipe</a>
+                <h3 class="mx-3 my-3">You haven't uploaded any recipes yet.</h3>
+                <h3 class=" mx-3 my-3">Click the button below to add your own recipes to the site</h3>
+                <a href="{{ url_for('uploadrecipe') }}" class="btn btn-primary mx-3 my-5">Upload Recipe</a>
             </div>
         </div>
 

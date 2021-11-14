@@ -42,6 +42,7 @@ def ingredients():
     now = datetime.now()
     current_month = now.strftime("%m")
     this_month = calendar.month_name[int(current_month)]
+  
     # Added condition for December to avoid error when
     # adding 1 to current month integer.
     if this_month == "December":
@@ -164,7 +165,7 @@ def uploadrecipe():
             "recipe_author": email,
             "recipe_author_username": username,
             "recipe_image":(
-                f"/static/images/{request.form.get('seasonal-ingredient')}.jpg")
+                f"/static/images/ingredients/{request.form.get('seasonal-ingredient')}.jpg")
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added")
@@ -195,7 +196,7 @@ def editrecipe(recipe):
             "recipe_category": request.form.get('dish-category'),
             "cuisine": request.form.get('cuisine'),
             "recipe_image":(
-                f"/static/images/{request.form.get('seasonal-ingredient')}.jpg"),
+                f"/static/images/ingredients/{request.form.get('seasonal-ingredient')}.jpg"),
             "recipe_author": email,
             "recipe_author_username": username
         }

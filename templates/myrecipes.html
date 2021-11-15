@@ -24,14 +24,16 @@
                 <p class="card-text">{{ recipe.recipe_description}}</p>
             </div>
             <div class="card-footer bg-transparent border-0">
+                <div class="btn-group" role="group" aria-label="Recipe Button Group">
+                    <a id='fullrecipebtn' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
+                    class="btn btn-primary recipe-btn mx-2 ">Get Full Recipe</a>
 
-                <a id='fullrecipebtn' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
-                    class="btn btn-primary recipe-btn">Get Full Recipe</a>
 
-
-                <a id='remove-saved-recipe-btn' href="{{url_for('remove_recipe', recipe_id = recipe._id)}}"
-                    name='emove-saved-recipe-btn' class="btn btn-primary btn-small recipe-btn mx-2">Remove Saved
+                    <a id='remove-saved-recipe-btn' href="{{url_for('remove_recipe', recipe_id = recipe._id)}}"
+                    name='emove-saved-recipe-btn' class="btn btn-primary recipe-btn mx-2">Remove Saved
                     Recipe</a>
+                </div>
+                
 
             </div>
         </div>
@@ -84,7 +86,7 @@
                     <div class="btn-group" role="group" aria-label="Recipe Button Group">
 
                         <a href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
-                            class="btn btn-primary recipe-btn">Get Full Recipe</a>
+                            class="btn btn-primary recipe-btn mx-2"> Full Recipe</a>
 
                         <a id='editrecipebtn' href="{{url_for('editrecipe', recipe = recipe._id)}}" name='editrecipebtn'
                             class="btn btn-primary btn-small recipe-btn mx-2">Edit Recipe</a>

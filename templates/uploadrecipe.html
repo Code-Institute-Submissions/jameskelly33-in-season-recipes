@@ -27,7 +27,7 @@
                                     <!-- First Value Empty to ensure Required attribute works -->
                                     <option value = "">Choose Ingredient</option> 
                                     {% for ingredient in ingredients %}
-                                    <option value="{{ ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
+                                    <option value="{{ ingredient.ingredient_name}}">{{ingredient.ingredient_name.capitalize()}}</option>
                                     {% endfor  %}
                                 </select>
                             </div>

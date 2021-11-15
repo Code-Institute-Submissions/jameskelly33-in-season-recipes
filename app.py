@@ -134,11 +134,12 @@ def myrecipes(username):
     def getrecipebyId(recipeID):
         return mongo.db.recipes.find_one({"_id": ObjectId(recipeID)})
     user_recipe_list = []
-    for x in user_recipes:
-        user_recipe_list.append(getrecipebyId(x))
+    for recipe_id in user_recipes:
+        user_recipe_list.append(getrecipebyId(recipe_id))
+     
     # get user's authored recipes
     authored_recipes = mongo.db.recipes.find(
-        {"recipe_author": session["current_user"]})
+        {"recipe_author": session["current_user"]}).sort('recipe_name',1)
 
     if session['current_user']:
         return render_template("myrecipes.html", username=username,
@@ -152,8 +153,10 @@ def uploadrecipe():
         {"email": session["current_user"]})['email']
     username = mongo.db.users.find_one(
         {"email": session["current_user"]})['username']
-    ingredients = mongo.db.ingredients.find()
+    ingredients = mongo.db.ingredients.find().sort('ingredient_name',1)
     if request.method == "POST":
+        # Remove any white spaces in multi-word ingredients for img url
+        ingredient_img_url = request.form.get('seasonal-ingredient').replace(" ","")
         recipe = {
             "recipe_name": request.form.get('recipe-name'),
             "recipe_description": request.form.get('recipe-description'),
@@ -165,7 +168,7 @@ def uploadrecipe():
             "recipe_author": email,
             "recipe_author_username": username,
             "recipe_image":(
-                f"/static/images/ingredients/{request.form.get('seasonal-ingredient')}.jpg")
+                f"/static/images/ingredients/{ingredient_img_url}.jpg")
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added")
@@ -176,7 +179,7 @@ def uploadrecipe():
 
 @app.route("/editrecipe.html/<recipe>", methods=['GET', "POST"])
 def editrecipe(recipe):
-    ingredients = mongo.db.ingredients.find()
+    ingredients = mongo.db.ingredients.find().sort('ingredient_name',1)
     categories = ["Starter", "Main", "Dessert"]
     email = mongo.db.users.find_one(
         {"email": session["current_user"]})['email']

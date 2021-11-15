@@ -30,17 +30,17 @@
                                 <option value="">Choose Ingredient</option>
                                 {% for ingredient in ingredients %}
                                 {% if ingredient.ingredient_name == recipe_info.seasonal_ingredient %}
-                                <option value="{{ ingredient.ingredient_name}}" selected>{{ingredient.ingredient_name}}
+                                <option value="{{ ingredient.ingredient_name}}" selected>{{ingredient.ingredient_name.capitalize()}}
                                 </option>
                                 {% else %}
-                                <option value="{{ ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
+                                <option value="{{ ingredient.ingredient_name}}">{{ingredient.ingredient_name.capitalize()}}</option>
                                 {% endif %}
                                 {% endfor %}
 
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label for="ingredients" class="form-labelf orm-label-required">Ingredients</label>
+                            <label for="ingredients" class="form-labelf form-label-required">Ingredients</label>
                             <textarea class="form-control" id="ingredients" name="ingredients" rows="10"
                                 placeholder="Start a new line for each ingredient" required>
                                         {% for recipe_ingredient in recipe_info.recipe_ingredients -%}

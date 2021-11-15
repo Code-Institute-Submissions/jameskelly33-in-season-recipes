@@ -25,12 +25,10 @@
             </div>
             <div class="card-footer bg-transparent border-0">
                 <div class="btn-group" role="group" aria-label="Recipe Button Group">
-                    <a id='fullrecipebtn' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" name='fullrecipebtn'
+                    <a id='fullrecipebtn' href="{{ url_for('fullrecipe', recipe_id = recipe._id) }}" 
                     class="btn btn-primary recipe-btn mx-2 ">Get Full Recipe</a>
-
-
                     <a id='remove-saved-recipe-btn' href="{{url_for('remove_recipe', recipe_id = recipe._id)}}"
-                    name='emove-saved-recipe-btn' class="btn btn-primary recipe-btn mx-2">Remove Saved
+                    class="btn btn-primary recipe-btn mx-2">Remove Saved
                     Recipe</a>
                 </div>
                 

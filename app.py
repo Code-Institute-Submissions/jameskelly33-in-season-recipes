@@ -190,6 +190,7 @@ def editrecipe(recipe):
 
     recipe_info = getrecipebyId(recipe)
     if request.method == "POST":
+        ingredient_img_url = request.form.get('seasonal-ingredient').replace(" ","")
         updated_recipe = {
             "recipe_name": request.form.get('recipe-name'),
             "recipe_description": request.form.get('recipe-description'),
@@ -199,7 +200,7 @@ def editrecipe(recipe):
             "recipe_category": request.form.get('dish-category'),
             "cuisine": request.form.get('cuisine'),
             "recipe_image":(
-                f"/static/images/ingredients/{request.form.get('seasonal-ingredient')}.jpg"),
+                f"/static/images/ingredients/{ingredient_img_url}.jpg"),
             "recipe_author": email,
             "recipe_author_username": username
         }

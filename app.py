@@ -37,27 +37,28 @@ def homepage():
 
 @app.route("/ingredients.html")
 def ingredients():
+    # Get ingredient and months collection from MongoDB
     ingredients = list(mongo.db.ingredients.find().sort("ingredient_name", 1))
+    months = mongo.db.months.find()
     # Get current month and next month for ingredients page.
     now = datetime.now()
-    current_month = now.strftime("%m")
-    this_month = calendar.month_name[int(current_month)]
-
+    current_month_number = now.strftime("%m")
+    current_month_name = calendar.month_name[int(current_month_number)]
     # Added condition for December to avoid error when
     # adding 1 to current month integer.
-    if this_month == "December":
+    if current_month_name == "December":
         next_month = "January"
     else:
-        next_month = calendar.month_name[(int(current_month)) + 1]
-        months = mongo.db.months.find()
-    for x in months:
-        if x.get(this_month):
-            current_ingredients = x.get(this_month)
-        elif x.get(next_month):
-            next_month_ingredients = x.get(next_month)
+        next_month = calendar.month_name[(int(current_month_number)) + 1]
+    for month in months:
+        if month.get(current_month_name):
+            current_ingredients = month.get(current_month_name)
+        elif month.get(next_month):
+            next_month_ingredients = month.get(next_month)
     return render_template(
         'ingredients.html', ingredients=ingredients,
-        this_month=this_month, next_month=next_month,
+        current_month_name=current_month_name,
+        next_month=next_month,
         current_ingredients=current_ingredients,
         months=months, next_month_ingredients=next_month_ingredients)
 
@@ -76,7 +77,7 @@ def search():
 
 
 @app.route("/ingredient_recipes", methods=["POST"])
-def getingredientrecipes():
+def get_ingredient_recipes():
     if request.method == 'POST':
         if request.form['currentmonthbutton']:
             selected_ingredient = request.form["currentmonthbutton"]

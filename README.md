@@ -4,14 +4,43 @@
 
 ![A mock-up of the website on different devices](static/images/screenshots/homepagescreenshot.png "Mock Up of the site")
 
+# **Table of Contents**
+- [**UX**](#--ux--)
+  * [**Project Goals**](#--project-goals--)
+  * [**Users**](#--users--)
+  * [**Site user goals**](#--site-user-goals--)
+- [**Wireframes**](#--wireframes--)
+  * [**User Story**](#--user-story--)
+- [**Features**](#--features--)
+  * [**On Every Page**](#--on-every-page--)
+  * [**Homepage**](#--homepage--)
+  * [**In Season Page**](#--in-season-page--)
+  * [**Recipes Page**](#--recipes-page--)
+  * [**Full Recipe Page**](#--full-recipe-page--)
+  * [**My Recipes Page**](#--my-recipes-page--)
+  * [**Upload Recipe Page**](#--upload-recipe-page--)
+  * [**Log In Page**](#--log-in-page--)
+  * [**Register Page**](#--register-page--)
+- [**Information Architecture**](#--information-architecture--)
+- [**Technologies Used**](#--technologies-used--)
+  * [**Languages Used**](#--languages-used--)
+- [**Frameworks, Libraries & Programs Used**](#--frameworks--libraries---programs-used--)
+- [**Testing**](#--testing--)
+- [**Deployment**](#deployment)
+- [**How to deploy this project to Heroku**](#how-to-deploy-this-project-to-heroku)
+- [**How to run this project locally**](#how-to-run-this-project-locally)
+- [**Credits & Content**](#credits---content)
+  * [**Code**](#code)
+  * [**Acknowledgements**](#acknowledgements)
+## **UX**
 
-## **Project Goals**
+### **Project Goals**
 
 The primary goal of this site is to provide users with a space to find and share recipes for dishes that use ingredients that are currently in season in Ireland. Using information from the Bord Bia(Irish food Board) users can find out what produce is in season or coming into season soon and search a database of recipes or add their own recipes for certain seasonal ingredients. 
 
-## **UX**
 
-### *User goals*
+
+### **Users**
 
 The central audience for this site is people in Ireland who like to cook and  have an interest in cooking with seasonal and locally sourced ingredients to cover a wide range of cuisines. 
 
@@ -136,7 +165,7 @@ This page shows the full library of recipes available on the site. There is a se
 
 If a user selects one of the ‘In Season’ ingredients from the In Season page it will redirect them to this page but with only recipes containing that particular ingredient. 
 
-GIF OF SELECTION
+
 ### **Full Recipe Page**
 ![A screenshot of the full recipe page](static/images/screenshots/fullrecipescreenshot.png "Screenshot of the Full Recipe Page")
 
@@ -322,9 +351,9 @@ Cuisine | cuisine | text, `max-length = "50"` | string
 Testing information can be found in this [separate file](testing.md). 
 
 
-## Deployment
+## **Deployment**
 
-## How to deploy this project to Heroku
+## **How to deploy this project to Heroku**
 
 To deploy this site to heroku the following steps need to be taken.
 
@@ -358,7 +387,7 @@ SECRET_KEY - 'YOUR SECRET KEY"
 10. Click on deploy branch to deploy your app. 
 
 
-## How to run this project locally
+## **How to run this project locally**
 
 To run this project locally you will need an IDE (e.g. VS Code/Gitpod) with PIP , Python 3 and Git installed. A free account at Mongo DB is also required.
 Below are the steps to run this project locally for Gitpod although steps may be different depending on the IDE used. 
@@ -404,7 +433,7 @@ python app.py
 
 
 
-## Credits & Content
+## **Credits & Content**
 
 All the images on the website were sourced from [Unsplash](https://unsplash.com/).
 
@@ -416,7 +445,7 @@ Any other recipes on the site are user-generated and credit is given on the Full
 
 
 
-### Code
+### **Code**
 
 * Button and form shadows were designed with inspiration from [this article on CSS shadows.](https://www.joshwcomeau.com/css/designing-shadows/)
 
@@ -427,7 +456,7 @@ Any other recipes on the site are user-generated and credit is given on the Full
 
 
 
-### Acknowledgements 
+### **Acknowledgements**
 
 My CodeInstitute mentor, Antonija Simic, for her thorough and constructive feedback.
 

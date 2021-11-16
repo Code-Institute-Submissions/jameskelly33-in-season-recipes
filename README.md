@@ -27,13 +27,11 @@ Users to this site would like to:
 
 * Save recipes to a personal profile. 
 
-* Rate and/or recommend existing recipes.
-
 * Add their own recipes to the site. 
 
 In Season will meet these goals by:
 
-* Allowing users to automatically see what ingredients are in season in the current date, as well as search for what is in season in future months.
+* Allowing users to automatically see what ingredients are in season in the current date, as well as see what is in season in future months.
 
 * Giving users the opportunity to search or browse a collection of recipes by ingredient. 
 
@@ -41,49 +39,32 @@ In Season will meet these goals by:
 
 * Providing users the ability to register a profile and add recipes to their personal to-cook-list. 
 
-* Allowing users who are logged-in to rate dishes out of 5 stars.
-
 * Allowing users to upload their own recipes to the site’s database. 
 
 ## **Wireframes**
 
-[Wireframes](#)
+[Wireframes](static/wireframes/inseasonwireframes.pdf)
 
-Homepage
 
-In Season Now page
-
-Recipes Page
-
-My Profile Page
-
-Register Page
-
-Log In Page
-
-My Profile Page
-
-Upload Recipe Page
 
 ### **User Story**
 
 As a visitor to In Season , I want/need:
 
-1. An uncomplicated user interface which allows quick access what ingredients are currently in season.
-2. The ability to browse  and navigate the site on a variety of devices sizes.
+1. An uncomplicated user interface which allows quick access to what ingredients are currently in season.
+2. The ability to browse and navigate the site on a variety of devices sizes.
 3. Information about seasonal ingredients to be presented in a clear and visually attractive way that will make me excited to cook with them.
 4.  A quick and simple way to navigate from my chosen ingredients to recipes that use those ingredients.
-5. Recipes to be presented in an easy-to-follow layout with a visual representation of the final dish.
+5. Recipes to be presented in an easy-to-follow layout.
 6. All recipes to follow a consistent easy-to-follow layout throughout the site. 
-7. To find recipes that cover a wide range of cuisines (Irish, French, Thai etc) as well dish type(appetiser, main, dessert etc)or match my dietary requirements (vegan, gluten free etc)
+7. To find recipes that cover a wide range of cuisines (Irish, French, Thai etc) as well dish type(appetiser, main, dessert etc)
 
 As a regular visitor to In Season, I want/need:
 
 1. The ability to register a personal account with the site and be able to easily log-in and log-out of the site.
 2. To save my favourite recipes to my user profile allowing for quick access to them in the future. 
 3. To see what other site users think of certain recipes.
-4. To rate and comment about recipes which I have made.
-5. To upload my own recipes for particular ingredients in a quick and user-friendly way using a form to help speed-up the process. 
+4. To upload my own recipes for particular ingredients in a quick and user-friendly way using a form to help speed-up the process. 
 
 
 **Design Choices**
@@ -104,7 +85,7 @@ On all other pages throughout the site the buttons and card headers for login/re
 
 **Navigation**
 
-On every page there is a standard, collapsible nav bar built using Bootstrap 5 classes that shows the website’s name in the top left, followed by links for the Homepage, In Season page, and recipe library. On the right are options to log in / register.
+On every page there is a standard, collapsible nav bar built using Bootstrap 5 classes that shows the website’s name in the top left, followed by links for the Homepage, In Season page, and Recipe library. On the right are options to log in / register.
 
 
 If the user is logged in then a My Recipes link is activated and a log out link is found on the top right. 
@@ -134,7 +115,6 @@ Below the hero image are three cards guiding the user through the process of usi
 This button will take users to the next page which shows what ingredients are currently in season in Ireland.
 2. Step 2 - Find recipes which use those ingredients.
 This button will take users to the recipe library page in which they can search for recipes.
-
 3. Step 3 – Join our community.
 This button launches the register page in which users can sign up to the site and start to save and upload recipes. 
 
@@ -173,7 +153,7 @@ The user who submitted the recipe will be given credit below the ‘Save Recipe�
 
 When a user has successfully logged on to the site they will be able to navigate to the My Recipes section of the site which is divided into two parts.
 1. Favourite Recipes
-This section shows any recipe the user has saved to their favourites by clicking the ‘Save Recipe’ button on the full recipe page. If there are no recipes saved this section will display text saying ‘You haven’t saved any recipes yet”. The layout for this section is exactly the same as the main recipes page in showing rows of Bootstrap cards with recipe image, name, ,description and ‘Get Full Recipe Button”.
+This section shows any recipe the user has saved to their favourites by clicking the ‘Save Recipe’ button on the full recipe page. If there are no recipes saved this section will display text saying ‘You haven’t saved any recipes yet”. The layout for this section is exactly the same as the main recipes page in showing rows of Bootstrap cards with recipe image, name, ,description and ‘Get Full Recipe Button”. There is also a button to remove a recipe from a user's collection. 
 ![A screenshot of the my recipes page](static/images/screenshots/myrecipes2.png  "Screenshot of the My Recipes Page")
 2. My Recipes
 This section shows any recipes the current user has uploaded to the site. The layout is the same as the section above however as these are user-generated recipes there are two extra buttons on each recipe card. 
@@ -183,7 +163,7 @@ The edit recipe button allows a user to edit a recipe that they previously uploa
 
 The form appears with the current information stored about the recipe and the user can change any field and re-submit the updated recipe to the site. 
 
-Note that user-generated recipes use an image of their seasonal ingredient as their recipe image so a user is currently unable to upload their own recipe as this would require image hosting which is somewhat beyond the scope of this education project but could be implemented in the future.
+All recipes use an image of their seasonal ingredient as their recipe image so a user is currently unable to upload their own recipe image as this would require image hosting which is somewhat beyond the scope of this education project but could be implemented in the future.
 
 The third button on the my recipe page is ‘Delete Recipe’ which gives the user the ability to remove their recipe from the site completely. Upon clicking this button a flash message will appear confirming the recipe’s deletion. 
 
@@ -346,7 +326,7 @@ Testing information can be found in this [separate file](testing.md).
 
 ## How to deploy this project to Heroku
 
-To deploy this site to heroku the following steps need to be take.
+To deploy this site to heroku the following steps need to be taken.
 
 1. Create a requirements.txt file using the terminal command pip freeze > requirements.txt.
 
@@ -362,7 +342,7 @@ To deploy this site to heroku the following steps need to be take.
 
 7. Search for the appropriate github repository and confirm the link. 
 
-8. Go to settings and clock on reveal Config Vars.
+8. Go to settings and click on reveal Config Vars.
 
 
 Set the following config vars updating with your own passwords or Database Names:
@@ -375,7 +355,7 @@ SECRET_KEY - 'YOUR SECRET KEY"
 ```
 9. Go back to the deploy section of your dashboard and enable automatic deploys
 
-10. Click on deploy brach to deploy your app. 
+10. Click on deploy branch to deploy your app. 
 
 
 ## How to run this project locally
@@ -428,11 +408,11 @@ python app.py
 
 All the images on the website were sourced from [Unsplash](https://unsplash.com/).
 
-The seasonal information about Irish ingredeitns was sourced from this very helpful [Bord Bia website](https://www.bordbia.ie/whats-in-season/best-in-season/calendar).
+The seasonal information about Irish ingredients was sourced from this very helpful [Bord Bia website](https://www.bordbia.ie/whats-in-season/best-in-season/calendar).
 
 All the recipes authored by In Season were created by James Kelly. 
 
-Any other recipes on the site are user generated and credit is given on the Full Recipe page for each recipe. 
+Any other recipes on the site are user-generated and credit is given on the Full Recipe page for each recipe. 
 
 
 

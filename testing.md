@@ -144,6 +144,7 @@ All steps were taken on Google Chrome, Firefox, Safari and Internet Explorer on 
 * Check that the current user’s username is correctly displayed in the heading. 
 * Check that the current user’s favourite recipes are displayed and correctly link to the right full recipe for each recipe.
 * Check that the ‘You haven’t saved any recipes yet” message is displayed for a user without any favourite recipes. 
+* Check that the "Remove Saved Recipe" button sucessfully removes the recipe from user's collection and the correct flash message is displayed.
 * Check that current user’s authored recipes are displayed and correctly link to the right full recipe for each recipe.
 *  Check that the ‘You haven’t uploaded any recipes yet” message is displayed for a user without any authored recipes. 
 * Check that the upload recipe button redirects the user to the Upload Recipe page. 

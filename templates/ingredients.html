@@ -3,7 +3,7 @@
 <div class="container-fluid ">
     <div class="row">
         <div class="col my-5 text-center ">
-            <h1>In Season in {{ this_month}}</h1>
+            <h1>In Season in {{ current_month_name}}</h1>
             <hr>
         </div>
     </div>
@@ -18,7 +18,7 @@
             alt="{{ ingredient.ingredient_name }}, {{ingredient.ingredient_description}}">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
-            <form method='POST' action="{{ url_for('getingredientrecipes')}}">
+            <form method='POST' action="{{ url_for('get_ingredient_recipes')}}">
                 <button id='currentmonthbutton' type='submit' value="{{ ingredient.ingredient_name }}"
                     name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name.capitalize()}}
                     Recipes</button>
@@ -48,7 +48,7 @@
         <img src="{{ ingredient.ingredient_image }}" class="card-img-top d-block w-100" alt="...">
         <div class="card-body text-center">
             <p class="card-text ">{{ ingredient.ingredient_description }}</p>
-            <form method='POST' action="{{ url_for('getingredientrecipes')}}">
+            <form method='POST' action="{{ url_for('get_ingredient_recipes')}}">
                 <button id='nextmonthbutton' type='submit' value="{{ ingredient.ingredient_name }}"
                     name='currentmonthbutton' class="btn btn-primary ingredient-btn">Find {{ ingredient.ingredient_name.capitalize()}}
                     Recipes</button>
